@@ -73,6 +73,7 @@ namespace NicolZarankin_Project.ViewModel
 
             return ForeignExchangeList;
         }
+
         public ForeignExchange SelectById(int Id)
         {
             command.CommandText = "SELECT * FROM ForeingExchange_Table WHERE Id=" + Id;
