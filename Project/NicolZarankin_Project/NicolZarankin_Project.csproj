@@ -87,8 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Stock.cs" />
     <Compile Include="ViewModel\Base_Database.cs" />
     <Compile Include="ViewModel\ForeignExchange_Database.cs" />
+    <Compile Include="ViewModel\Stock_Database.cs" />
     <Compile Include="ViewModel\User_Database.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

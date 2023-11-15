@@ -12,6 +12,7 @@ namespace NicolZarankin_Project.Model
         Normal, // have permission to foreign exchange and stock
         Manager // have permission to everything including users
     }
+
     public class User : BaseEntity
     {
         protected string firstName;

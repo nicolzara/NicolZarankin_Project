@@ -55,7 +55,7 @@ namespace NicolZarankin_Project.ViewModel
         {
             User user = entity as User;
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@ID", user.Id);
+            command.Parameters.AddWithValue("@Id", user.Id);
             command.Parameters.AddWithValue("@FirstName", user.FirstName);
             command.Parameters.AddWithValue("@LastName", user.LastName);
             command.Parameters.AddWithValue("@Email", user.Email);

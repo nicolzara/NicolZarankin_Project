@@ -11,8 +11,8 @@ namespace NicolZarankin_Project.Model
         protected string currencyName;
         public string CurrencyName
         {
-            get { return CurrencyName; }
-            set { CurrencyName = value; }
+            get { return currencyName; }
+            set { currencyName = value; }
         }
 
         protected string currencyCode;
