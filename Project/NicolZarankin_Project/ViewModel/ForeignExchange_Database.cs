@@ -59,32 +59,60 @@ namespace NicolZarankin_Project.ViewModel
             var currencies = json["data"];
 
             // create the list of currencies with the updated rate
-            List<ForeignExchange> ForeignExchangeList = new List<ForeignExchange>();
+            List<ForeignExchange> foreignExchangeList = new List<ForeignExchange>();
             foreach (var currency in list)
             {
-                var ForeignExchangeInfo = currencies[currency.CurrencyCode];
+                var foreignExchangeInfo = currencies[currency.CurrencyCode];
                 ForeignExchange foreignExchange = new ForeignExchange();
                 foreignExchange.CurrencyName = currency.CurrencyName;
-                foreignExchange.CurrencyCode = (ForeignExchangeInfo["code"]).ToString();
-                foreignExchange.Value = Double.Parse((ForeignExchangeInfo["value"]).ToString());
+                foreignExchange.CurrencyCode = (foreignExchangeInfo["code"]).ToString();
+                foreignExchange.Value = Double.Parse((foreignExchangeInfo["value"]).ToString());
 
-                ForeignExchangeList.Add(foreignExchange);
+                foreignExchangeList.Add(foreignExchange);
             }
 
-            return ForeignExchangeList;
+            return foreignExchangeList;
         }
 
         public ForeignExchange SelectById(int Id)
         {
             command.CommandText = "SELECT * FROM ForeingExchange_Table WHERE Id=" + Id;
-            ForeignExchangeList ForeignExchangeList = new ForeignExchangeList(ExecuteCommand());
+            ForeignExchangeList foreignExchangeList = new ForeignExchangeList(ExecuteCommand());
 
-            if (ForeignExchangeList.Count == 0)
+            if (foreignExchangeList.Count == 0)
             {
                 return null;
             }
 
-            return ForeignExchangeList[0];
+            return foreignExchangeList[0];
+        }
+
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            ForeignExchange foreignExchange = entity as ForeignExchange;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Id", foreignExchange.Id);
+            command.Parameters.AddWithValue("@CurrencyName", foreignExchange.CurrencyName);
+            command.Parameters.AddWithValue("@CurrencyCode", foreignExchange.CurrencyCode);
+        }
+
+        public int Insert(ForeignExchange foreignExchange)
+        {
+            command.CommandText = "INSERT INTO ForeignExchange_Table (CurrencyName, CurrencyCode) VALUES (@CurrencyName, @CurrencyCode)";
+            LoadParameters(foreignExchange);
+            return ExecuteCRUD();
+        }
+        public int Update(ForeignExchange foreignExchange)
+        {
+            command.CommandText = "UPDATE ForeignExchange_Table SET CurrencyName = @CurrencyName, CurrencyCode = @CurrencyCode WHERE Id = @Id";
+            LoadParameters(foreignExchange);
+            return ExecuteCRUD();
+        }
+        public int Delete(ForeignExchange foreignExchange)
+        {
+            command.CommandText = "DELETE FROM ForeignExchange_Table WHERE Id = @Id";
+            LoadParameters(foreignExchange);
+            return ExecuteCRUD();
         }
     }
 }

@@ -50,5 +50,39 @@ namespace NicolZarankin_Project.ViewModel
 
             return userList[0];
         }
+
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            User user = entity as User;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@ID", user.Id);
+            command.Parameters.AddWithValue("@FirstName", user.FirstName);
+            command.Parameters.AddWithValue("@LastName", user.LastName);
+            command.Parameters.AddWithValue("@Email", user.Email);
+            command.Parameters.AddWithValue("@Birthdate", user.Birthdate);
+            command.Parameters.AddWithValue("@Gender", user.Gender);
+            command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
+            command.Parameters.AddWithValue("@PermissionLevel", user.PermissionLevel);
+            command.Parameters.AddWithValue("@Password", user.Password);
+        }
+
+        public int Insert(User user)
+        {
+            command.CommandText = "INSERT INTO User_Table (FirstName, LastName, Email, Birthdate, Gender, PhoneNumber, PermissionLevel, Password) VALUES (@FirstName, @LastName, @Email, @Birthdate, @Gender, @PhoneNumber, @PermissionLevel, @Password)";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
+        public int Update(User user)
+        {
+            command.CommandText = "UPDATE User_Table SET FirstName = @FirstName, LastName = @LastName, Email = @Email, Birthdate = @Birthdate, Gender = @Gender, PhoneNumber = @PhoneNumber, PermissionLevel = @PermissionLevel, Password = @Password WHERE Id = @Id";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
+        public int Delete(User user)
+        {
+            command.CommandText = "DELETE FROM User_Table WHERE Id = @Id";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
     }
 }
