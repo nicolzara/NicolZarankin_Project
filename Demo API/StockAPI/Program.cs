@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Text.Json.Nodes;
 
 namespace Demo_API
 {
@@ -8,23 +9,17 @@ namespace Demo_API
     {
         static void Main(string[] args)
         {
-            var client = new HttpClient();
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri("https://realstonks.p.rapidapi.com/TSLA"),
-                Headers =
-        {
-        { "X-RapidAPI-Key", "5c3afdf750mshcb609474fdf75f8p11e8d2jsn2e1379fc5687" },
-        { "X-RapidAPI-Host", "realstonks.p.rapidapi.com" },
-        },
-        };
-            using (var response = await client.SendAsync(request))
-            {
-                response.EnsureSuccessStatusCode();
-                var body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(body);
-            }
+
+            //api key : IHW5KG3V4NV7V8I0
+            var request = (HttpWebRequest)WebRequest.Create("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=TSLA&interval=60min&outputsize=compact&apikey=IHW5KG3V4NV7V8I0");
+            var response = (HttpWebResponse)request.GetResponse();
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            JsonObject json = new JsonObject();
+            json = (JsonObject)JsonObject.Parse(responseString);
+            string stockRecentValue = (json["Time Series (60min)"][(json["Meta Data"]["3. Last Refreshed"]).ToString()]).ToString();
+
+            Console.WriteLine(stockRecentValue);
+            Console.WriteLine(json);
         }
     }
 }
