@@ -49,9 +49,6 @@
     <Compile Include="Service.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{82dad23f-8da5-41cf-9e74-51c00a1146e1}</Project>
       <Name>Model</Name>
