@@ -1,11 +1,12 @@
-﻿using NicolZarankin_Project;
+﻿using Model;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.Json.Nodes;
 
-namespace NicolZarankin_Project
+namespace ViewModel
 {
     public class ForeignExchange_Database : Base_Database
     {
