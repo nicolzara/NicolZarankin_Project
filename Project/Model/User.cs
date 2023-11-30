@@ -17,20 +17,12 @@ namespace Model
     [DataContract]
     public class User : BaseEntity
     {
-        protected string firstName;
+        protected string userName;
         [DataMember]
-        public string FirstName
+        public string UserName
         {
-            get { return firstName; }
-            set { firstName = value; }
-        }
-
-        protected string lastName;
-        [DataMember]
-        public string LastName
-        {
-            get { return lastName; }
-            set { lastName = value; }
+            get { return userName; }
+            set { userName = value; }
         }
 
         protected string email;
@@ -47,14 +39,6 @@ namespace Model
         {
             get { return birthdate; }
             set { birthdate = value; }
-        }
-
-        protected string gender;
-        [DataMember]
-        public string Gender
-        {
-            get { return gender; }
-            set { gender = value; }
         }
 
         protected string phoneNumber;
@@ -79,6 +63,14 @@ namespace Model
         {
             get { return password; }
             set { password = value; }
+        }
+
+        protected double freeBalance;
+        [DataMember]
+        public double FreeBalance
+        {
+            get { return freeBalance; } 
+            set { freeBalance = value; }
         }
     }
 

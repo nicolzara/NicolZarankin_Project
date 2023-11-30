@@ -19,14 +19,13 @@ namespace ViewModel
             User user = entity as User;
 
             user.Id = int.Parse(reader["Id"].ToString());
-            user.FirstName = reader["FirstName"].ToString();
-            user.LastName = reader["LastName"].ToString();
+            user.UserName = reader["UserName"].ToString();
             user.Email = reader["Email"].ToString();
             user.Birthdate = DateTime.Parse(reader["Birthdate"].ToString());
-            user.Gender = reader["Gender"].ToString();
             user.PhoneNumber = reader["PhoneNumber"].ToString();
             user.PermissionLevel = int.Parse(reader["PermissionLevel"].ToString());
             user.Password = reader["Password"].ToString();
+            user.FreeBalance = double.Parse(reader["FreeBalance"].ToString());
 
             return user;
         }
@@ -56,25 +55,24 @@ namespace ViewModel
             User user = entity as User;
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Id", user.Id);
-            command.Parameters.AddWithValue("@FirstName", user.FirstName);
-            command.Parameters.AddWithValue("@LastName", user.LastName);
+            command.Parameters.AddWithValue("@FirstName", user.UserName);
             command.Parameters.AddWithValue("@Email", user.Email);
-            command.Parameters.AddWithValue("@Birthdate", user.Birthdate);
-            command.Parameters.AddWithValue("@Gender", user.Gender);
+            command.Parameters.AddWithValue("@Birthdate", user.Birthdate);           
             command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
             command.Parameters.AddWithValue("@PermissionLevel", user.PermissionLevel);
             command.Parameters.AddWithValue("@Password", user.Password);
+            command.Parameters.AddWithValue("@FreeBalance", user.FreeBalance);
         }
 
         public int Insert(User user)
         {
-            command.CommandText = "INSERT INTO User_Table (FirstName, LastName, Email, Birthdate, Gender, PhoneNumber, PermissionLevel, Password) VALUES (@FirstName, @LastName, @Email, @Birthdate, @Gender, @PhoneNumber, @PermissionLevel, @Password)";
+            command.CommandText = "INSERT INTO User_Table (UserName, Email, Birthdate, PhoneNumber, PermissionLevel, Password, FreeBalance) VALUES (@UserName, @Email, @Birthdate, @PhoneNumber, @PermissionLevel, @Password, @FreeBalance)";
             LoadParameters(user);
             return ExecuteCRUD();
         }
         public int Update(User user)
         {
-            command.CommandText = "UPDATE User_Table SET FirstName = @FirstName, LastName = @LastName, Email = @Email, Birthdate = @Birthdate, Gender = @Gender, PhoneNumber = @PhoneNumber, PermissionLevel = @PermissionLevel, Password = @Password WHERE Id = @Id";
+            command.CommandText = "UPDATE User_Table SET UserName = @UserName, Email = @Email, Birthdate = @Birthdate, PhoneNumber = @PhoneNumber, PermissionLevel = @PermissionLevel, Password = @Password, FreeBalance=@FreeBalance WHERE Id = @Id";
             LoadParameters(user);
             return ExecuteCRUD();
         }
