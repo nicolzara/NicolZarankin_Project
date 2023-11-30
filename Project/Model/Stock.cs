@@ -33,6 +33,11 @@ namespace Model
             get { return value; }
             set { this.value = value; }
         }
+
+        public override string ToString()
+        {
+            return ("Stock Name" + stockName + "Stock Symbol: " + stockSymbol + ", Stock Value: " + value.ToString());
+        }
     }
 
     [CollectionDataContract]
