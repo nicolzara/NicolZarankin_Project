@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Newtonsoft.Json;
+
+namespace Client
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class LoginWindow : Window
+    {
+
+        private User user;
+        public LoginWindow()
+        {
+            InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            this.DataContext = new User();
+        }
+
+        /// <summary>
+        /// Sends a login request to the server
+        /// </summary>
+        private void LoginClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        /// <summary>
+        /// Clears the data of the text boxes of username and password
+        /// </summary>
+        private void ClearClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        /// <summary>
+        /// Opens sign up window and closes login window
+        /// </summary>
+        private void SignUpClick(object sender, RoutedEventArgs e)
+        {
+            SignupWindow signupWindow = new SignupWindow();
+            signupWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            signupWindow.Left = this.Left;
+            signupWindow.Top = this.Top;
+            Close();
+            signupWindow.ShowDialog();
+        }
+
+    }
+}
