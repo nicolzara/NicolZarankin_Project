@@ -29,20 +29,14 @@ namespace Client
             this.DataContext = user;
         }
 
-        ///// <summary>
-        ///// Clears the data of all the text boxes
-        ///// </summary>
-        //private void ClearClick(object sender, RoutedEventArgs e)
-        //{
-        //    tbUsername.BorderBrush = Brushes.Gray;
-        //    tbPassword.BorderBrush = Brushes.Gray;
-        //    tbEmail.BorderBrush = Brushes.Gray;
-        //    tbAddress.BorderBrush = Brushes.Gray;
-        //    tbPhone.BorderBrush = Brushes.Gray;
-        //    tbBirthdate.BorderBrush = Brushes.Gray;
-        //    user = new User();
-        //    this.DataContext = user;
-        //}
+        /// <summary>
+        /// Clears the data of all the text boxes
+        /// </summary>
+        private void ClearClick(object sender, RoutedEventArgs e)
+        {
+            user = new User();
+            this.DataContext = user;
+        }
 
         ///// <summary>
         ///// Sends a signup request to the server
@@ -151,18 +145,18 @@ namespace Client
         //}
 
 
-        ///// <summary>
-        ///// Opens login window and closes sign up window
-        ///// </summary>
-        //private void LoginClick(object sender, RoutedEventArgs e)
-        //{
-        //    LoginWindow loginWindow = new LoginWindow();
-        //    loginWindow.WindowStartupLocation = WindowStartupLocation.Manual;
-        //    loginWindow.Left = this.Left;
-        //    loginWindow.Top = this.Top;
-        //    Close();
-        //    loginWindow.ShowDialog();
-        //}
+        /// <summary>
+        /// Opens login window and closes sign up window
+        /// </summary>
+        private void LoginClick(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            loginWindow.Left = this.Left;
+            loginWindow.Top = this.Top;
+            Close();
+            loginWindow.ShowDialog();
+        }
 
     }
 }

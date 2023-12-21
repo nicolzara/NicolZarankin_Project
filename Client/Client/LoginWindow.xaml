@@ -19,7 +19,8 @@
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
-            <StackPanel>
+        
+        <StackPanel>
             <Image Source="/Images/_d95ef9a5-463e-47a6-924c-4dce02409eeb.jpg" HorizontalAlignment="Center" Width="100" Margin="15" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Center">
             <Hyperlink IsEnabled="False"
@@ -32,14 +33,15 @@
                    Virtual Wallet, Infinite Possibilities!
             </Hyperlink></TextBlock>
         </StackPanel>
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+        
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
             <materialDesign:PackIcon Kind="Account"
                                      Foreground="LightGray"
                                      Width="30" Height="30"/>
             <TextBox x:Name="UserNameTextBox"
                      Foreground="LightGray"
-                     materialDesign:HintAssist.Hint="enter your username"
-                     materialDesign:HintAssist.HelperText="Helper text longer than error"
+                     materialDesign:HintAssist.Hint="Username"
+                     materialDesign:HintAssist.HelperText="Enter your username"
                      Width="135"
                      Height="25"
                      VerticalAlignment="Top">
@@ -53,6 +55,7 @@
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
+        
         <StackPanel Grid.Row="2"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal"
@@ -66,8 +69,10 @@
                          Width="135"
                          materialDesign:HintAssist.Hint="Password"
                          materialDesign:TextFieldAssist.HasClearButton="True"
-                         materialDesign:HintAssist.HelperText="At least 8 characters" />
+                         materialDesign:HintAssist.HelperText="Enter your password"
+                         PasswordChanged="PasswordBox_PasswordChanged"/>
         </StackPanel>
+        
         <StackPanel Grid.Row="3">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button  Style="{StaticResource MaterialDesignRaisedButton}"

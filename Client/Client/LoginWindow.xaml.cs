@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using MaterialDesignThemes.Wpf;
 
 namespace Client
 {
@@ -37,7 +38,7 @@ namespace Client
         /// </summary>
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-            
+           
         }
 
         /// <summary>
@@ -45,7 +46,10 @@ namespace Client
         /// </summary>
         private void ClearClick(object sender, RoutedEventArgs e)
         {
-            
+            user = new User();
+            UserNameTextBox.Clear();
+            PasswordBox.Clear();
+            HintAssist.SetHelperText(PasswordBox, "Enter your password");
         }
 
         /// <summary>
@@ -61,5 +65,18 @@ namespace Client
             signupWindow.ShowDialog();
         }
 
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            ValidationPassword validationPassword = new ValidationPassword();
+            ValidationResult result = validationPassword.Validate(PasswordBox.Password, null);
+            if (result.IsValid)
+            {
+                HintAssist.SetHelperText(PasswordBox, "Password");
+            }
+            else
+            {
+                HintAssist.SetHelperText(PasswordBox, result.ErrorContent.ToString());
+            }
+        }
     }
 }

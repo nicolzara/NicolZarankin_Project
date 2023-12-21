@@ -49,23 +49,23 @@ namespace Client
 
                 if (passwsord.Length != 8)
                 {
-                    return new ValidationResult(false, "password must be 8 chars"); // check if the password lenght is 8
+                    return new ValidationResult(false, "must be 8 chars"); // check if the password lenght is 8
                 }
                 else if (!digit.IsMatch(passwsord))
                 {
-                    return new ValidationResult(false, "password must contain digit"); // search lowercase letter
+                    return new ValidationResult(false, "must contain digit"); // search lowercase letter
                 }
                 else if (!uppercase.IsMatch(passwsord))
                 {
-                    return new ValidationResult(false, "password must contain uppercase letter"); // search uppercase letter
+                    return new ValidationResult(false, "must contain uppercase letter"); // search uppercase letter
                 }
                 else if (!lowercase.IsMatch(passwsord))
                 {
-                    return new ValidationResult(false, "password must contain lowercase letter"); // search digit
+                    return new ValidationResult(false, "must contain lowercase letter"); // search digit
                 }
                 else if (!specialChar.IsMatch(passwsord))
                 {
-                    return new ValidationResult(false, "password must contain special char"); // search special char
+                    return new ValidationResult(false, "must contain special char"); // search special char
                 }
             }
             catch (Exception ex)
