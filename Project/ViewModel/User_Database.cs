@@ -84,19 +84,17 @@ namespace ViewModel
             return ExecuteCRUD();
         }
 
-        public int Login(string username, string password)
+        public User Login(string username, string password)
         {
             command.CommandText = "SELECT * FROM User_Table WHERE Username=" + username + "AND [Password]=" + password;
             UserList userList = new UserList(ExecuteCommand());
 
             if (userList.Count == 0)
             {
-                return -1;
+                return null;
             }
 
-            User user = userList[0];
-
-            return user.PermissionLevel;
+            return userList[0];
         }
     }
 }

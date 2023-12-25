@@ -36,7 +36,7 @@ namespace WcfServiceLibrary
             return user_Database.Delete(user);
         }
 
-        public int Login(string username, string password)
+        public User Login(string username, string password)
         {
             return new User_Database().Login(username, password);
         }

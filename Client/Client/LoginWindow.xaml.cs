@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using MaterialDesignThemes.Wpf;
+using Client.ServiceReferenceVirWallet;
 
 namespace Client
 {
@@ -30,7 +31,8 @@ namespace Client
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            this.DataContext = new User();
+            this.DataContext = user;
+            user = new User();
         }
 
         /// <summary>
@@ -41,7 +43,17 @@ namespace Client
            if(CheckData())
             {
                 // do login while using the service
-                MessageBox.Show("You are in", "Ok", MessageBoxButton.OK);
+                ServiceClient service = new ServiceClient();
+                User loginUser = service.Login(user.UserName, user.Password);
+                if(loginUser == null)
+                {
+                    MessageBox.Show("User not found");
+                }
+                else
+                {
+                    MessageBox.Show(loginUser.UserName, "Ok", MessageBoxButton.OK);
+                }
+                
             }
 
            else
@@ -81,6 +93,7 @@ namespace Client
             if (result.IsValid)
             {
                 HintAssist.SetHelperText(PasswordBox, "Password");
+                user.Password = PasswordBox.Password;
             }
             else
             {

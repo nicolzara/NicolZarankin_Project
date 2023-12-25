@@ -1,4 +1,5 @@
-﻿using MaterialDesignThemes.Wpf;
+﻿using Client.ServiceReferenceVirWallet;
+using MaterialDesignThemes.Wpf;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -54,16 +55,20 @@ namespace Client
         {
             if(CheckData())
             {
+                user.FreeBalance = 0;   
                 DateTime currentDate = DateTime.Now;
                 if (BirthdateDatePicker.SelectedDate.HasValue)
                 { 
                     DateTime selectedDate = DateTime.Parse(BirthdateDatePicker.SelectedDate.ToString());               
                     if(CalculateAge(selectedDate) < 18)
                     {
-                        user.permissionLevel = ((int)PermissionLevel.Teen);
-                        MessageBox.Show(user.permissionLevel.ToString());
+                        user.PermissionLevel = ((int)PermissionLevel.Teen);
+                        MessageBox.Show(user.PermissionLevel.ToString());
                     }
-                    
+                    else
+                    {
+                        user.PermissionLevel = ((int)PermissionLevel.Normal);
+                    }
 
 
                 }
