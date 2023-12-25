@@ -38,7 +38,16 @@ namespace Client
         /// </summary>
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-           
+           if(CheckData())
+            {
+                // do login while using the service
+                MessageBox.Show("You are in", "Ok", MessageBoxButton.OK);
+            }
+
+           else
+            {
+                MessageBox.Show("You have an error", "Error", MessageBoxButton.OK);
+            }
         }
 
         /// <summary>
@@ -77,6 +86,15 @@ namespace Client
             {
                 HintAssist.SetHelperText(PasswordBox, result.ErrorContent.ToString());
             }
+        }
+
+        private bool CheckData()
+        {
+            if (UserNameTextBox.Text.Equals(string.Empty)) return false;
+            if (PasswordBox.Password.Equals(string.Empty)) return false;
+            if (Validation.GetHasError(UserNameTextBox)) return false;
+            if (!HintAssist.GetHelperText(PasswordBox).ToString().Equals("Password")) return false; ;
+            return true;
         }
     }
 }

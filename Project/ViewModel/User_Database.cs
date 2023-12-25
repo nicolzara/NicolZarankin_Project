@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -83,17 +84,19 @@ namespace ViewModel
             return ExecuteCRUD();
         }
 
-        public bool Login(string username, string password)
+        public int Login(string username, string password)
         {
             command.CommandText = "SELECT * FROM User_Table WHERE Username=" + username + "AND [Password]=" + password;
             UserList userList = new UserList(ExecuteCommand());
 
             if (userList.Count == 0)
             {
-                return false;
+                return -1;
             }
 
-            return true;
+            User user = userList[0];
+
+            return user.PermissionLevel;
         }
     }
 }

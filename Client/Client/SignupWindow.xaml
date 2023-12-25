@@ -12,45 +12,16 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
         Title="SignupWindow"
-        Height="500"
+        Height="550"
         Width="800">
-    <Window.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="Height" Value="25"/>
-            <Setter Property="Width" Value="75"/>
-            <Setter Property="FontFamily" Value="Berlin Sans FB Demi"/>
-            <Setter Property="Foreground" Value="#8AAAE5"/>
-            <Setter Property="Validation.ErrorTemplate">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <AdornedElementPlaceholder x:Name="placeholder" />
-                            <TextBlock FontSize="10" FontFamily="Berlin Sans FB Demi" Foreground="#FF0E2144"
-                                   Text="{Binding ElementName=placeholder, 
-                                   Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" />
-                        </StackPanel>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="ToolTip"
-                     Value="{Binding RelativeSource={x:Static RelativeSource.Self},
-                     Path=(Validation.Errors)[0].ErrorContent}"/>
-                </Trigger>
-            </Style.Triggers>
-      
-        </Style>
-        
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
-            <RowDefinition Height="0.25*" />
-            <RowDefinition Height="0.25*" />
-            <RowDefinition Height="0.25*" />
+            <RowDefinition Height="0.225*" />
+            <RowDefinition Height="0.225*" />
+            <RowDefinition Height="0.225*" />
+            <RowDefinition Height="0.225*" />
+            <RowDefinition Height="0.27*" />
             <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
         <StackPanel>
@@ -71,15 +42,113 @@
             Virtual Wallet, Infinite Possibilities!
      </Hyperlink></TextBlock>
         </StackPanel>
-        
-        <StackPanel Grid.Row="4">
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="Account"
+                             Foreground="LightGray"
+                             Width="30" Height="30"/>
+            <TextBox x:Name="UserNameTextBox"
+             Foreground="LightGray"
+             materialDesign:HintAssist.Hint="Username"
+             materialDesign:HintAssist.HelperText="Enter your username"
+             Width="135"
+             Height="25"
+             VerticalAlignment="Top">
+                <TextBox.Text>
+                    <Binding Path="userName"
+                     UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:ValidationUsername />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="Email"
+                     Foreground="LightGray"
+                     Width="30" Height="30"/>
+            <TextBox x:Name="EmailTextBox"
+     Foreground="LightGray"
+     materialDesign:HintAssist.Hint="Email"
+     materialDesign:HintAssist.HelperText="Enter your email"
+     Width="135"
+     Height="25"
+     VerticalAlignment="Top">
+                <TextBox.Text>
+                    <Binding Path="email"
+             UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:ValidationEmail />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="3"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal"
+            VerticalAlignment="Top">
+            <materialDesign:PackIcon Kind="Key"
+                             Foreground="LightGray"
+                             Width="25"
+                             Height="25"/>
+            <PasswordBox x:Name="PasswordBox"
+                 Foreground="LightGray"
+                 Width="135"
+                 materialDesign:HintAssist.Hint="Password"
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+                 materialDesign:HintAssist.HelperText="Enter your password"
+                 PasswordChanged="PasswordBox_PasswordChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" HorizontalAlignment="Center" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="Phone"
+                Foreground="LightGray"
+                Width="30" Height="30"/>
+            <TextBox x:Name="PhoneNumberTextBox"
+                Foreground="LightGray"
+                materialDesign:HintAssist.Hint="Phone number"
+                materialDesign:HintAssist.HelperText="Enter your phone number"
+                Width="135"
+                Height="25"
+                VerticalAlignment="Top">
+                <TextBox.Text>
+                    <Binding Path="phoneNumber"
+                        UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:ValidationPhoneNumber />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" HorizontalAlignment="Center" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="CalendarRange"
+            Foreground="LightGray"
+            Width="30" Height="30"/>
+            <DatePicker VerticalAlignment="Top"
+                        x:Name="BirthdateDatePicker"
+                        Width="135"
+                        materialDesign:HintAssist.Hint="Birhtdate"
+                        materialDesign:HintAssist.HelperText="Enter your birthdate"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                        SelectedDateChanged="BirthdateDatePicker_SelectedDateChanged"/>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="6">
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">
                 <Button  Style="{StaticResource MaterialDesignRaisedButton}"
-                         Width="75"
+                         Width="76"
                          Foreground="LightGray"
                          ToolTip="Resource name: MaterialDesignRaisedButton"
-                         Click="LoginClick">Signup</Button>
+                         Click="SignupClick">Signup</Button>
                 <Button Style="{StaticResource MaterialDesignRaisedButton}"
                         Width="75"
                         Foreground="LightGray"

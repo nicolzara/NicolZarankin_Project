@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MaterialDesignThemes.Wpf;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,12 @@ namespace Client
     /// </summary>
     public partial class SignupWindow : Window
     {
+        public enum PermissionLevel
+        {
+            Teen, // have permission only to foreign exchange
+            Normal, // have permission to foreign exchange and stock
+            Manager // have permission to everything including users
+        }
         private User user;
 
         public SignupWindow()
@@ -36,113 +43,41 @@ namespace Client
         {
             user = new User();
             this.DataContext = user;
+            BirthdateDatePicker.SelectedDate = null;
+
         }
 
-        ///// <summary>
-        ///// Sends a signup request to the server
-        ///// </summary>
-        //private void SignupClick(object sender, RoutedEventArgs e)
-        //{
-        //    if (!user.isEmpty() && !Validation.GetHasError(tbUsername) && !Validation.GetHasError(tbPassword) && 
-        //        !Validation.GetHasError(tbEmail) && !Validation.GetHasError(tbAddress) && 
-        //        !Validation.GetHasError(tbPhone) && !Validation.GetHasError(tbBirthdate))
-        //    {
-        //        tbUsername.BorderBrush = Brushes.Green;
-        //        tbPassword.BorderBrush = Brushes.Green;
-        //        tbEmail.BorderBrush = Brushes.Green;
-        //        tbAddress.BorderBrush = Brushes.Green;
-        //        tbPhone.BorderBrush = Brushes.Green;
-        //        tbBirthdate.BorderBrush = Brushes.Green;
+        /// <summary>
+        /// Sends a signup request to the server
+        /// </summary>
+        private void SignupClick(object sender, RoutedEventArgs e)
+        {
+            if(CheckData())
+            {
+                DateTime currentDate = DateTime.Now;
+                if (BirthdateDatePicker.SelectedDate.HasValue)
+                { 
+                    DateTime selectedDate = DateTime.Parse(BirthdateDatePicker.SelectedDate.ToString());               
+                    if(CalculateAge(selectedDate) < 18)
+                    {
+                        user.permissionLevel = ((int)PermissionLevel.Teen);
+                        MessageBox.Show(user.permissionLevel.ToString());
+                    }
+                    
 
-        //        // get information from service
-        //        if (true)
-        //        {
-        //            int statusPacket = 1;
-        //            switch ((Codes)statusPacket)
-        //            {
-        //                case Codes.Success:
-        //                    // open menu window
-        //                    break;
-        //                case Codes.UserExists:
-        //                    MessageBox.Show("The user already exists", "Error",
-        //                        MessageBoxButton.OK, MessageBoxImage.Error);
-        //                    break;
-        //                case Codes.RegexError:
-        //                    MessageBox.Show("Wrong user data format", "Error",
-        //                        MessageBoxButton.OK, MessageBoxImage.Error);
-        //                    break;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("An error occured", "Error",
-        //                MessageBoxButton.OK, MessageBoxImage.Error);
-        //        }
-        //    }
 
-        //    else
-        //    {
-        //        if(user.isEmpty())
-        //        {
-        //            tbUsername.BorderBrush = Brushes.Red;
-        //            tbPassword.BorderBrush = Brushes.Red;
-        //            tbEmail.BorderBrush = Brushes.Red;
-        //            tbAddress.BorderBrush = Brushes.Red;
-        //            tbPhone.BorderBrush = Brushes.Red;
-        //            tbBirthdate.BorderBrush = Brushes.Red;
-        //        }
-        //        if (tbUsername.Text.Length == 0)
-        //        {
-        //            tbUsername.BorderBrush = Brushes.Red;
-        //        }
-        //        else
-        //        {
-        //            tbUsername.BorderBrush = Brushes.Green;
-        //        }
-        //        if (Validation.GetHasError(tbPassword) || tbPassword.Text.Length == 0)
-        //        {
-        //            tbPassword.BorderBrush = Brushes.Red;
-        //        }
-        //        else
-        //        {
-        //            tbPassword.BorderBrush = Brushes.Green;
-        //        }
-        //        if (Validation.GetHasError(tbEmail) || tbEmail.Text.Length == 0)
-        //        {
-        //            tbEmail.BorderBrush = Brushes.Red;
-        //        }
-        //        else
-        //        {
-        //            tbEmail.BorderBrush = Brushes.Green;
-        //        }
-        //        if (Validation.GetHasError(tbAddress) || tbAddress.Text.Length == 0)
-        //        {
-        //            tbAddress.BorderBrush = Brushes.Red;
-        //        }
-        //        else
-        //        {
-        //            tbAddress.BorderBrush = Brushes.Green;
-        //        }
-        //        if (Validation.GetHasError(tbPhone) || tbPhone.Text.Length == 0)
-        //        {
-        //            tbPhone.BorderBrush = Brushes.Red;
-        //        }
-        //        else
-        //        {
-        //            tbPhone.BorderBrush = Brushes.Green;
-        //        }
-        //        if (Validation.GetHasError(tbBirthdate) || tbBirthdate.Text.Length == 0)
-        //        {
-        //            tbBirthdate.BorderBrush = Brushes.Red;
-        //        }
-        //        else
-        //        {
-        //            tbBirthdate.BorderBrush = Brushes.Green;
-        //        }
+                }
+                else
+                {
+                    MessageBox.Show("No date selected.");
+                }
+            }
 
-        //        MessageBox.Show("Error", "Error", MessageBoxButton.OK);
-        //    }
-        //}
+            else
+            {
+                MessageBox.Show("You have an error", "Error", MessageBoxButton.OK);
+            }
+        }
 
 
         /// <summary>
@@ -158,5 +93,70 @@ namespace Client
             loginWindow.ShowDialog();
         }
 
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            ValidationPassword validationPassword = new ValidationPassword();
+            ValidationResult result = validationPassword.Validate(PasswordBox.Password, null);
+            if (result.IsValid)
+            {
+                HintAssist.SetHelperText(PasswordBox, "Password");
+            }
+            else
+            {
+                HintAssist.SetHelperText(PasswordBox, result.ErrorContent.ToString());
+            }
+        }
+
+        private void BirthdateDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime currentDate = DateTime.Now;
+            DateTime? selectedDate = BirthdateDatePicker.SelectedDate;
+
+            if (selectedDate.HasValue)
+            {
+                if (selectedDate > currentDate)
+                {
+                    HintAssist.SetHelperText(BirthdateDatePicker, "you can't born in the future");
+                }
+
+                else
+                {
+                    HintAssist.SetHelperText(BirthdateDatePicker, "Birthdate");
+                }
+            }
+            else
+            {
+                HintAssist.SetHelperText(BirthdateDatePicker, "Enter your birthdate");
+            }
+        }
+
+        private bool CheckData()
+        {
+            if (UserNameTextBox.Text.Equals(string.Empty)) return false;
+            if (PasswordBox.Password.Equals(string.Empty)) return false;
+            if (EmailTextBox.Text.Equals(string.Empty)) return false;
+            if (PhoneNumberTextBox.Text.Equals(string.Empty)) return false;
+            if (!BirthdateDatePicker.SelectedDate.HasValue) return false;
+            if (Validation.GetHasError(UserNameTextBox)) return false;
+            if (Validation.GetHasError(EmailTextBox)) return false;
+            if (Validation.GetHasError(PhoneNumberTextBox)) return false;
+            if (!HintAssist.GetHelperText(PasswordBox).ToString().Equals("Password")) return false;
+            if (DateTime.Now < DateTime.Parse(BirthdateDatePicker.SelectedDate.ToString())) return false;
+            return true;
+        }
+
+        static int CalculateAge(DateTime birthDate)
+        {
+            DateTime currentDate = DateTime.Now;
+            int age = currentDate.Year - birthDate.Year;
+
+            // Check if the birthday has occurred this year
+            if (birthDate > currentDate.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace Client
         public string phoneNumber { get; set; }
         public string password { get; set; }
 
+        public int permissionLevel {  get; set; }
+
         /// <summary>
         /// the function returns if the object is totally empty
         /// </summary>
