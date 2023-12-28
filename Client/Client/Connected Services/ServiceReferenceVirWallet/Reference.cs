@@ -345,6 +345,12 @@ namespace Client.ServiceReferenceVirWallet {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
         System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.User> LoginAsync(string username, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Signup", ReplyAction="http://tempuri.org/IService/SignupResponse")]
+        int Signup(Client.ServiceReferenceVirWallet.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Signup", ReplyAction="http://tempuri.org/IService/SignupResponse")]
+        System.Threading.Tasks.Task<int> SignupAsync(Client.ServiceReferenceVirWallet.User user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectAllForeignExchanges", ReplyAction="http://tempuri.org/IService/SelectAllForeignExchangesResponse")]
         Client.ServiceReferenceVirWallet.ForeignExchangeList SelectAllForeignExchanges();
         
@@ -459,6 +465,14 @@ namespace Client.ServiceReferenceVirWallet {
         
         public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.User> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
+        }
+        
+        public int Signup(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.Signup(user);
+        }
+        
+        public System.Threading.Tasks.Task<int> SignupAsync(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SignupAsync(user);
         }
         
         public Client.ServiceReferenceVirWallet.ForeignExchangeList SelectAllForeignExchanges() {

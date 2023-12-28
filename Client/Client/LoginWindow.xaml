@@ -46,7 +46,7 @@
                      Height="25"
                      VerticalAlignment="Top">
                 <TextBox.Text>
-                    <Binding Path="userName"
+                    <Binding Path="UserName"
                              UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <local:ValidationUsername />

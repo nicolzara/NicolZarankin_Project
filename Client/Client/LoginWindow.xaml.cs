@@ -31,8 +31,8 @@ namespace Client
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            this.DataContext = user;
             user = new User();
+            this.DataContext = user;
         }
 
         /// <summary>

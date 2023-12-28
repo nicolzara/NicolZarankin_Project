@@ -37,6 +37,12 @@
   <wsdl:message name="IService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_Signup_InputMessage">
+    <wsdl:part name="parameters" element="tns:Signup" />
+  </wsdl:message>
+  <wsdl:message name="IService_Signup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignupResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_SelectAllForeignExchanges_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllForeignExchanges" />
   </wsdl:message>
@@ -105,6 +111,10 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Login" message="tns:IService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginResponse" message="tns:IService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Signup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Signup" message="tns:IService_Signup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SignupResponse" message="tns:IService_Signup_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SelectAllForeignExchanges">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectAllForeignExchanges" message="tns:IService_SelectAllForeignExchanges_InputMessage" />
@@ -179,6 +189,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/IService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Signup">
+      <soap:operation soapAction="http://tempuri.org/IService/Signup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

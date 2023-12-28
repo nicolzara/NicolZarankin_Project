@@ -17,6 +17,7 @@ namespace WcfServiceLibrary
         [OperationContract] int UpdateUser(User user);
         [OperationContract] int DeleteUser(User user);
         [OperationContract] User Login(string username, string password);
+        [OperationContract] int Signup(User user);
 
         //Foreign Exchange
         [OperationContract] ForeignExchangeList SelectAllForeignExchanges();

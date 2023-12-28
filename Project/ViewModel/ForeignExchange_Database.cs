@@ -77,7 +77,7 @@ namespace ViewModel
 
         public ForeignExchange SelectById(int Id)
         {
-            command.CommandText = "SELECT * FROM ForeingExchange_Table WHERE Id=" + Id;
+            command.CommandText = $"SELECT * FROM ForeingExchange_Table WHERE Id={Id}";
             ForeignExchangeList foreignExchangeList = new ForeignExchangeList(ExecuteCommand());
 
             if (foreignExchangeList.Count == 0)

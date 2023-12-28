@@ -45,6 +45,7 @@ namespace Client
             user = new User();
             this.DataContext = user;
             BirthdateDatePicker.SelectedDate = null;
+            PasswordBox.Clear();
 
         }
 
@@ -63,18 +64,38 @@ namespace Client
                     if(CalculateAge(selectedDate) < 18)
                     {
                         user.PermissionLevel = ((int)PermissionLevel.Teen);
-                        MessageBox.Show(user.PermissionLevel.ToString());
+                        user.Birthdate = selectedDate;
                     }
                     else
                     {
+                        user.Birthdate = selectedDate;
                         user.PermissionLevel = ((int)PermissionLevel.Normal);
                     }
 
+                    ServiceClient service = new ServiceClient();
+                    int errors = service.Signup(user);
 
-                }
-                else
-                {
-                    MessageBox.Show("No date selected.");
+                    
+                    if(errors == 1)// open the menu page
+                    {
+                        if(user.PermissionLevel == ((int)PermissionLevel.Teen))// opens the teen menu window
+                        {
+
+                        }
+                        else if(user.PermissionLevel == ((int)PermissionLevel.Normal))// opens the normal menu window
+                        {
+
+                        }
+                    }
+                    else if(errors == -1)// the username exists
+                    {
+                        MessageBox.Show("Find another username");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error occurred");
+                    }
+                    
                 }
             }
 
@@ -105,6 +126,7 @@ namespace Client
             if (result.IsValid)
             {
                 HintAssist.SetHelperText(PasswordBox, "Password");
+                user.Password = PasswordBox.Password.ToString();
             }
             else
             {

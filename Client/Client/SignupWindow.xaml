@@ -55,7 +55,7 @@
              Height="25"
              VerticalAlignment="Top">
                 <TextBox.Text>
-                    <Binding Path="userName"
+                    <Binding Path="UserName"
                      UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <local:ValidationUsername />
@@ -77,7 +77,7 @@
      Height="25"
      VerticalAlignment="Top">
                 <TextBox.Text>
-                    <Binding Path="email"
+                    <Binding Path="Email"
              UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <local:ValidationEmail />
@@ -117,7 +117,7 @@
                 Height="25"
                 VerticalAlignment="Top">
                 <TextBox.Text>
-                    <Binding Path="phoneNumber"
+                    <Binding Path="PhoneNumber"
                         UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <local:ValidationPhoneNumber />

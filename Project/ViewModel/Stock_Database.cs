@@ -34,7 +34,7 @@ namespace ViewModel
 
         public Stock SelectById(int Id)
         {
-            command.CommandText = "SELECT * FROM Stock_Table WHERE Id=" + Id;
+            command.CommandText = $"SELECT * FROM Stock_Table WHERE Id={Id}";
             StockList stockList = new StockList(ExecuteCommand());
 
             if (stockList.Count == 0)

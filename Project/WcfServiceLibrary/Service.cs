@@ -11,7 +11,7 @@ namespace WcfServiceLibrary
 {
     public class Service : IService
     {
-        #region
+        #region User
         public UserList SelectAllUsers()
         {
             User_Database user_Database = new User_Database();
@@ -41,9 +41,20 @@ namespace WcfServiceLibrary
             return new User_Database().Login(username, password);
         }
 
+        public int Signup(User user)
+        {
+            // check if the username exists in the table
+            if(new User_Database().SelectByUsername(user.UserName) != null)
+            {
+                return -1;
+            }
+
+            return InsertUser(user);
+        }
+
         #endregion
 
-        #region
+        #region Foreign Exchange
         public ForeignExchangeList SelectAllForeignExchanges()
         {
             ForeignExchange_Database foreignExchange_Database = new ForeignExchange_Database();
@@ -67,9 +78,9 @@ namespace WcfServiceLibrary
             ForeignExchange_Database foreignExchange_Database = new ForeignExchange_Database();
             return foreignExchange_Database.Delete(foreignExchange);
         }
-        #endregion
+        #endregion 
 
-        #region
+        #region Stock
         public StockList SelectAllStocks()
         {
             Stock_Database stock_Database = new Stock_Database();
@@ -93,6 +104,6 @@ namespace WcfServiceLibrary
             Stock_Database stock_Database = new Stock_Database();
             return stock_Database.Delete(stock);
         }
-        #endregion
+        #endregion 
     }
 }

@@ -70,6 +70,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Signup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q6:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SignupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SelectAllForeignExchanges">
     <xs:complexType>
       <xs:sequence />
@@ -78,14 +92,14 @@
   <xs:element name="SelectAllForeignExchangesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="SelectAllForeignExchangesResult" nillable="true" type="q6:ForeignExchangeList" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="SelectAllForeignExchangesResult" nillable="true" type="q7:ForeignExchangeList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertForeignExchange">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="foreignExchange" nillable="true" type="q7:ForeignExchange" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="foreignExchange" nillable="true" type="q8:ForeignExchange" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -99,7 +113,7 @@
   <xs:element name="UpdateForeignExchange">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="foreignExchange" nillable="true" type="q8:ForeignExchange" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="foreignExchange" nillable="true" type="q9:ForeignExchange" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -113,7 +127,7 @@
   <xs:element name="DeleteForeignExchange">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="foreignExchange" nillable="true" type="q9:ForeignExchange" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="foreignExchange" nillable="true" type="q10:ForeignExchange" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -132,14 +146,14 @@
   <xs:element name="SelectAllStocksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="SelectAllStocksResult" nillable="true" type="q10:StockList" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="SelectAllStocksResult" nillable="true" type="q11:StockList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertStock">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="stock" nillable="true" type="q11:Stock" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="stock" nillable="true" type="q12:Stock" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -153,7 +167,7 @@
   <xs:element name="UpdateStock">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="stock" nillable="true" type="q12:Stock" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="stock" nillable="true" type="q13:Stock" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -167,7 +181,7 @@
   <xs:element name="DeleteStock">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="stock" nillable="true" type="q13:Stock" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="stock" nillable="true" type="q14:Stock" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
