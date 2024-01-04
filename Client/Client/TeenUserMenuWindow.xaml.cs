@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for NormalUserMenuWindow.xaml
+    /// Interaction logic for TeenUserMenuWindow.xaml
     /// </summary>
-    public partial class NormalUserMenuWindow : Window
+    public partial class TeenUserMenuWindow : Window
     {
-        public NormalUserMenuWindow()
+        public TeenUserMenuWindow()
         {
             InitializeComponent();
         }

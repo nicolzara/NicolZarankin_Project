@@ -76,10 +76,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ManagerUserMenuWindow.xaml.cs">
+      <DependentUpon>ManagerUserMenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NormalUserMenuWindow.xaml.cs">
       <DependentUpon>NormalUserMenuWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignupWindow.xaml.cs" />
+    <Compile Include="TeenUserMenuWindow.xaml.cs">
+      <DependentUpon>TeenUserMenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UsersTableWindow.xaml.cs">
+      <DependentUpon>UsersTableWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validation.cs" />
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +107,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManagerUserMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NormalUserMenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +118,14 @@
     <Page Include="SignupWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeenUserMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsersTableWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for NormalUserMenuWindow.xaml
+    /// Interaction logic for ManagerUserMenuWindow.xaml
     /// </summary>
-    public partial class NormalUserMenuWindow : Window
+    public partial class ManagerUserMenuWindow : Window
     {
-        public NormalUserMenuWindow()
+        public ManagerUserMenuWindow()
         {
             InitializeComponent();
         }
@@ -27,6 +27,16 @@ namespace Client
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("hello");
+        }
+
+        private void Users_Click(object sender, RoutedEventArgs e)
+        {
+            UsersTableWindow usersTableWindow = new UsersTableWindow();
+            usersTableWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            usersTableWindow.Left = this.Left;
+            usersTableWindow.Top = this.Top;
+            Close();
+            usersTableWindow.ShowDialog();
         }
     }
 }
