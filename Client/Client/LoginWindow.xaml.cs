@@ -52,10 +52,8 @@ namespace Client
                 else
                 {
                     MessageBox.Show(loginUser.UserName, "Ok", MessageBoxButton.OK);
-                }
-                
+                }                
             }
-
            else
             {
                 MessageBox.Show("You have an error", "Error", MessageBoxButton.OK);

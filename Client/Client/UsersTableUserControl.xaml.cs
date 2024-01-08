@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Client.ServiceReferenceVirWallet;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +17,14 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for ManagerUserMenuWindow.xaml
+    /// Interaction logic for UsersTableWindow.xaml
     /// </summary>
-    public partial class ManagerUserMenuWindow : Window
+    public partial class UsersTableUserControl : UserControl
     {
-        public ManagerUserMenuWindow()
+        public UsersTableUserControl()
         {
             InitializeComponent();
+            GetUsers();
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -29,15 +32,13 @@ namespace Client
             MessageBox.Show("hello");
         }
 
-        private void Users_Click(object sender, RoutedEventArgs e)
-        {
-            grView.Children.Clear();
-            grView.Children.Add(new UsersTableUserControl();
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void GetUsers()
         {
 
+            UserList users = new ServiceClient().SelectAllUsers();
+            lvUsers.ItemsSource = users;
+
+            // add rows https://support.syncfusion.com/kb/article/9500/how-to-bind-data-table-to-wpf-datagrid-sfdatagrid
         }
     }
 }
