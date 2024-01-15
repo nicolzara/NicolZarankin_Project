@@ -37,8 +37,6 @@ namespace Client
 
             UserList users = new ServiceClient().SelectAllUsers();
             lvUsers.ItemsSource = users;
-
-            // add rows https://support.syncfusion.com/kb/article/9500/how-to-bind-data-table-to-wpf-datagrid-sfdatagrid
         }
     }
 }

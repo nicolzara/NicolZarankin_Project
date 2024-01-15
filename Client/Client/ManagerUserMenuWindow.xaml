@@ -64,6 +64,6 @@
                     </MenuItem>
                 </MenuItem>
             </Menu>
-        <Grid Grid.Row="1" Grid.Column="1" x:Name="grView"/>
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="grView"/>
     </Grid>
 </Window>

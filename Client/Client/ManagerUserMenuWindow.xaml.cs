@@ -32,7 +32,7 @@ namespace Client
         private void Users_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();
-            grView.Children.Add(new UsersTableUserControl();
+            grView.Children.Add(new UsersTableUserControl());
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
