@@ -1,10 +1,4 @@
 ﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 using ViewModel;
 
 namespace WcfServiceLibrary
@@ -15,7 +9,7 @@ namespace WcfServiceLibrary
         public UserList SelectAllUsers()
         {
             User_Database user_Database = new User_Database();
-            return user_Database.SelectAll();            
+            return user_Database.SelectAll();
         }
 
         public int InsertUser(User user)
@@ -24,7 +18,7 @@ namespace WcfServiceLibrary
             return user_Database.Insert(user);
         }
 
-        public int UpdateUser(User user) 
+        public int UpdateUser(User user)
         {
             User_Database user_Database = new User_Database();
             return user_Database.Update(user);
@@ -44,7 +38,7 @@ namespace WcfServiceLibrary
         public int Signup(User user)
         {
             // check if the username exists in the table
-            if(new User_Database().SelectByUsername(user.UserName) != null)
+            if (new User_Database().SelectByUsername(user.UserName) != null)
             {
                 return -1;
             }
@@ -69,7 +63,7 @@ namespace WcfServiceLibrary
 
         public int UpdateForeignExchange(ForeignExchange foreignExchange)
         {
-            ForeignExchange_Database foreignExchange_Database = new ForeignExchange_Database(); 
+            ForeignExchange_Database foreignExchange_Database = new ForeignExchange_Database();
             return foreignExchange_Database.Update(foreignExchange);
         }
 
@@ -95,7 +89,7 @@ namespace WcfServiceLibrary
 
         public int UpdateStock(Stock stock)
         {
-            Stock_Database stock_Database= new Stock_Database();
+            Stock_Database stock_Database = new Stock_Database();
             return stock_Database.Update(stock);
         }
 

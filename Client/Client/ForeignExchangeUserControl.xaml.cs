@@ -1,7 +1,6 @@
 ﻿using Client.ServiceReferenceVirWallet;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,30 +11,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for UsersTableWindow.xaml
+    /// Interaction logic for ForeignExchangeUserControl.xaml
     /// </summary>
-    public partial class UsersTableUserControl : UserControl
+    public partial class ForeignExchangeUserControl : UserControl
     {
-        public UsersTableUserControl()
+        public ForeignExchange foreignExchange;
+        public ForeignExchangeUserControl(ForeignExchange f)
         {
             InitializeComponent();
-            GetUsers();
-        }
-
-        private void Home_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("hello");
-        }
-
-        private void GetUsers()
-        {
-            UserList users = new ServiceClient().SelectAllUsers();
-            UsersListView.ItemsSource = users;
+            this.DataContext = f;
         }
     }
 }

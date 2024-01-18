@@ -40,7 +40,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Information">
-                <MenuItem Header="_Foreign Exchange">
+                <MenuItem Header="_Foreign Exchange" Click="ForeignExchangeInfo_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="CurrencyUsd" />
                     </MenuItem.Icon>

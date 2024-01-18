@@ -1,5 +1,4 @@
 ﻿using Model;
-using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +21,7 @@ namespace ViewModel
             foreingExchange.Id = int.Parse(reader["Id"].ToString());
             foreingExchange.CurrencyName = reader["CurrencyName"].ToString();
             foreingExchange.CurrencyCode = reader["CurrencyCode"].ToString();
-           
+
             return foreingExchange;
         }
 
@@ -33,7 +32,7 @@ namespace ViewModel
         public ForeignExchangeList SelectAll()
         {
             // gets all the foreign exchanges data except the value from the database
-            command.CommandText = "SELECT * FROM ForeingExchange_Table";
+            command.CommandText = "SELECT * FROM ForeignExchange_Table";
             ForeignExchangeList foreignExchangeList = new ForeignExchangeList(ExecuteCommand());
 
             // gets the data from the external api
@@ -50,7 +49,7 @@ namespace ViewModel
         public static List<ForeignExchange> CreateForeignExchangeList(ForeignExchangeList list)
         {
             // http request from external api to get the foreign exchage rates
-            var request = (HttpWebRequest)WebRequest.Create("https://api.ForeignExchangeapi.com/v3/latest?apikey=cur_live_3OCymrhZQ4ZVFKl5twKaurzQQ0GAkGOvi7Jvcveu"); 
+            var request = (HttpWebRequest)WebRequest.Create("https://api.currencyapi.com/v3/latest?apikey=cur_live_3OCymrhZQ4ZVFKl5twKaurzQQ0GAkGOvi7Jvcveu");
             var response = (HttpWebResponse)request.GetResponse();
             var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
@@ -77,7 +76,7 @@ namespace ViewModel
 
         public ForeignExchange SelectById(int Id)
         {
-            command.CommandText = $"SELECT * FROM ForeingExchange_Table WHERE Id={Id}";
+            command.CommandText = $"SELECT * FROM ForeignExchange_Table WHERE Id={Id}";
             ForeignExchangeList foreignExchangeList = new ForeignExchangeList(ExecuteCommand());
 
             if (foreignExchangeList.Count == 0)

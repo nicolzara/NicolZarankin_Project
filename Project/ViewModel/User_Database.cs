@@ -1,10 +1,5 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ViewModel
 {
@@ -68,10 +63,10 @@ namespace ViewModel
         {
             User user = entity as User;
             command.Parameters.Clear();
-            
+
             command.Parameters.AddWithValue("@UserName", user.UserName);
             command.Parameters.AddWithValue("@Email", user.Email);
-            command.Parameters.AddWithValue("@Birthdate", user.Birthdate);           
+            command.Parameters.AddWithValue("@Birthdate", user.Birthdate);
             command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
             command.Parameters.AddWithValue("@PermissionLevel", user.PermissionLevel);
             command.Parameters.AddWithValue("@Password", user.Password);

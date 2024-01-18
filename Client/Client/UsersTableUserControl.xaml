@@ -12,7 +12,7 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d" Height="550" Width="800">
     <Grid>    
-        <ListView x:Name="lvUsers" Grid.Row="1" Grid.Column="1" FontSize="9">
+        <ListView x:Name="UsersListView" Grid.Row="1" Grid.Column="1" FontSize="9">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding UserName}" Header="UserName" />

@@ -76,6 +76,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ForeignExchangeListUserControl.xaml.cs">
+      <DependentUpon>ForeignExchangeListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForeignExchangeUserControl.xaml.cs">
+      <DependentUpon>ForeignExchangeUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManagerUserMenuWindow.xaml.cs">
       <DependentUpon>ManagerUserMenuWindow.xaml</DependentUpon>
     </Compile>
@@ -90,6 +96,14 @@
       <DependentUpon>UsersTableUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
+    <Page Include="ForeignExchangeListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForeignExchangeUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

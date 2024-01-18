@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ServiceReferenceVirWallet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Client
     /// </summary>
     public partial class NormalUserMenuWindow : Window
     {
-        public NormalUserMenuWindow()
+        public NormalUserMenuWindow(User user)
         {
             InitializeComponent();
         }

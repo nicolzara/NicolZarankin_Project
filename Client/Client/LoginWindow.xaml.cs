@@ -25,6 +25,12 @@ namespace Client
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public enum PermissionLevel
+        {
+            Teen, // have permission only to foreign exchange
+            Normal, // have permission to foreign exchange and stock
+            Manager // have permission to everything including users
+        }
 
         private User user;
         public LoginWindow()
@@ -40,7 +46,11 @@ namespace Client
         /// </summary>
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-           if(CheckData())
+            ServiceClient service1 = new ServiceClient();
+            User loginUser1 = service1.Login("Nicol","Asd123@#");
+            ManagerUserMenuWindow w1 = new ManagerUserMenuWindow(loginUser1);
+            w1.ShowDialog();
+            if (CheckData())
             {
                 // do login while using the service
                 ServiceClient service = new ServiceClient();
@@ -51,7 +61,33 @@ namespace Client
                 }
                 else
                 {
-                    MessageBox.Show(loginUser.UserName, "Ok", MessageBoxButton.OK);
+                    if (loginUser.PermissionLevel == ((int)PermissionLevel.Teen))
+                    {
+                        TeenUserMenuWindow teenUserMenuWindow = new TeenUserMenuWindow(user);
+                        teenUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                        teenUserMenuWindow.Left = this.Left;
+                        teenUserMenuWindow.Top = this.Top;
+                        Close();
+                        teenUserMenuWindow.ShowDialog();
+                    }
+                    else if (loginUser.PermissionLevel == ((int)PermissionLevel.Normal))
+                    {
+                        NormalUserMenuWindow normalUserMenuWindow = new NormalUserMenuWindow(user);
+                        normalUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                        normalUserMenuWindow.Left = this.Left;
+                        normalUserMenuWindow.Top = this.Top;
+                        Close();
+                        normalUserMenuWindow.ShowDialog();
+                    }
+                    else if(loginUser.PermissionLevel == ((int)PermissionLevel.Manager))
+                    {
+                        ManagerUserMenuWindow managerUserMenuWindow = new ManagerUserMenuWindow(user);
+                        managerUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                        managerUserMenuWindow.Left = this.Left;
+                        managerUserMenuWindow.Top = this.Top;
+                        Close();
+                        managerUserMenuWindow.ShowDialog();
+                    }
                 }                
             }
            else

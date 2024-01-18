@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ServiceReferenceVirWallet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Client
     /// </summary>
     public partial class ManagerUserMenuWindow : Window
     {
-        public ManagerUserMenuWindow()
+        public ManagerUserMenuWindow(User user)
         {
             InitializeComponent();
         }
@@ -38,6 +39,12 @@ namespace Client
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ForeignExchangeInfo_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new ForeignExchangeListUserControl());
         }
     }
 }
