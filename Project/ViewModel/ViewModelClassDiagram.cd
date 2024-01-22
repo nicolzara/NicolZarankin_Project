@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ViewModel.User_Database" Collapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAKAAAAAAAAAAAAAAAgEAAAAAAAAQAAACEAA=</HashCode>
+      <FileName>User_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.Stock_Database" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
+      <FileName>Stock_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ForeignExchange_Database" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAACAAAAAACEAA=</HashCode>
+      <FileName>ForeignExchange_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.Base_Database" Collapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAApAAAABAAAAAgQAAAAAAAAAAAASEAA=</HashCode>
+      <FileName>Base_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

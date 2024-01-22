@@ -10,17 +10,17 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        mc:Ignorable="d" Height="150" Width="800">
+        mc:Ignorable="d" Height="75" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <StackPanel Margin="35,0,0,0">
             <TextBlock Text="{Binding CurrencyCode}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18"/>
             <TextBlock Text="{Binding CurrencyName}" FontWeight="Bold" FontSize="10"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0">
+        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0,0,35,0" HorizontalAlignment="Right">
             <TextBlock Text="{Binding Value}" FontWeight="Bold" FontSize="18"/>
         </StackPanel>
 

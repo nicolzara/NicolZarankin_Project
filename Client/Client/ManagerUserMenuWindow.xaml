@@ -11,7 +11,7 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
-        Title="NormalUserMenuWindow" Height="550" Width="800">
+        Title="ManagerUserMenuWindow" Height="550" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.125*"/>
@@ -45,7 +45,7 @@
                         <materialDesign:PackIcon Kind="CurrencyUsd" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Stock">
+                <MenuItem Header="Stock" Click="StockInfo_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Bitcoin" />
                     </MenuItem.Icon>

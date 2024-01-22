@@ -36,9 +36,10 @@ namespace Client
             grView.Children.Add(new UsersTableUserControl());
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void StockInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            grView.Children.Clear();
+            grView.Children.Add(new StockListUserControl());
         }
 
         private void ForeignExchangeInfo_Click(object sender, RoutedEventArgs e)
@@ -46,5 +47,6 @@ namespace Client
             grView.Children.Clear();
             grView.Children.Add(new ForeignExchangeListUserControl());
         }
+
     }
 }

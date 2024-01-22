@@ -1,4 +1,9 @@
 ﻿using Model;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Text.Json.Nodes;
+using System;
 
 namespace ViewModel
 {
@@ -24,6 +29,44 @@ namespace ViewModel
         {
             command.CommandText = "SELECT * FROM Stock_Table";
             StockList stockList = new StockList(ExecuteCommand());
+
+            List<Stock> stocks = CreateStockList(stockList);
+            stockList = new StockList(stocks);
+                
+            return stockList;
+        }
+
+        /// <summary>
+        /// the function uses api to get updated currency values
+        /// </summary>
+        /// <returns>list of currencies</returns>
+        public static List<Stock> CreateStockList(StockList list)
+        {
+            List<Stock> stockList = new List<Stock>(); 
+            //api key : IHW5KG3V4NV7V8I0
+            foreach(Stock s in list)
+            {
+                try
+                {
+                    string symbol = s.StockSymbol;
+                    var request = (HttpWebRequest)WebRequest.Create($"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=60min&outputsize=compact&apikey=IHW5KG3V4NV7V8I0");
+                    var response = (HttpWebResponse)request.GetResponse();
+                    var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                    JsonObject json = new JsonObject();
+                    json = (JsonObject)JsonObject.Parse(responseString);
+                    string stockRecentValue = (json["Time Series (60min)"][(json["Meta Data"]["3. Last Refreshed"]).ToString()]).ToString();
+                    json = (JsonObject)JsonObject.Parse(stockRecentValue);
+                    stockRecentValue = (json["4. close"]).ToString();
+                    double value = double.Parse(stockRecentValue);
+                    s.Value = value;
+                    stockList.Add(s);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Data);
+                }
+            }
+
             return stockList;
         }
 

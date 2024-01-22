@@ -89,6 +89,12 @@
       <DependentUpon>NormalUserMenuWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignupWindow.xaml.cs" />
+    <Compile Include="StockListUserControl.xaml.cs">
+      <DependentUpon>StockListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockUserControl.xaml.cs">
+      <DependentUpon>StockUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeenUserMenuWindow.xaml.cs">
       <DependentUpon>TeenUserMenuWindow.xaml</DependentUpon>
     </Compile>
@@ -132,6 +138,14 @@
     <Page Include="SignupWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StockListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TeenUserMenuWindow.xaml">
       <SubType>Designer</SubType>
