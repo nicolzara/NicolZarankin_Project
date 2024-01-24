@@ -37,5 +37,20 @@ namespace Client
             UserList users = new ServiceClient().SelectAllUsers();
             UsersListView.ItemsSource = users;
         }
+
+        private void UserInfoChanged_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                // Retrieve the user object associated with the TextBox
+                User user = textBox.DataContext as User;
+
+                if (user != null)
+                {
+                    // Call the service client to update the user
+                    new ServiceClient().UpdateUser(user);
+                }
+            }
+        }
     }
 }

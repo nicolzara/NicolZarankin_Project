@@ -19,10 +19,22 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Email}" Header="Email" />
                     <GridViewColumn DisplayMemberBinding="{Binding Birthdate}" Header="Birthdate" />
                     <GridViewColumn DisplayMemberBinding="{Binding PhoneNumber}" Header="PhoneNumber" />
-                    <GridViewColumn DisplayMemberBinding="{Binding PermissionLevel}" Header="PermissionLevel" />
+                    <GridViewColumn Header="PermissionLevel">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding PermissionLevel}" TextChanged="UserInfoChanged_TextChanged"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Password}" Header="Password" />
-                    <GridViewColumn DisplayMemberBinding="{Binding FreeBalance}" Header="FreeBalance" />
-                    
+                    <GridViewColumn Header="FreeBalance">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding FreeBalance}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>
