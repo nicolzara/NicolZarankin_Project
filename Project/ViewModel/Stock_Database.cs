@@ -61,7 +61,7 @@ namespace ViewModel
                     s.Value = value;
                     stockList.Add(s);
                 }
-                catch(Exception ex)
+                catch(Exception ex)  
                 {
                     Console.WriteLine(ex.Data);
                 }

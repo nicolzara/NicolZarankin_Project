@@ -21,6 +21,7 @@ namespace Client
     /// </summary>
     public partial class UsersTableUserControl : UserControl
     {
+        private ServiceClient service = new ServiceClient();
         public UsersTableUserControl()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace Client
                 if (user != null)
                 {
                     // Call the service client to update the user
-                    new ServiceClient().UpdateUser(user);
+                    service.UpdateUser(user);
                 }
             }
         }

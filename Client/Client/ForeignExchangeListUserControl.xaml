@@ -14,8 +14,9 @@
     <Grid>
         <ScrollViewer>
             <StackPanel>
-                <StackPanel x:Name="main"/>
+                <StackPanel x:Name="main"/> 
             </StackPanel>
         </ScrollViewer>
+        
     </Grid>
 </UserControl>

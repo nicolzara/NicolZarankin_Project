@@ -1,5 +1,4 @@
-﻿using Client.ServiceReferenceVirWallet;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,16 +16,13 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for ForeignExchangeListUserControl.xaml
+    /// Interaction logic for AddForeignExchangeUserControl.xaml
     /// </summary>
-    public partial class ForeignExchangeListUserControl : UserControl
+    public partial class AddForeignExchangeUserControl : UserControl
     {
-        public ForeignExchangeListUserControl()
+        public AddForeignExchangeUserControl()
         {
             InitializeComponent();
-            foreach (ForeignExchange foreign in (new ServiceClient()).SelectAllForeignExchanges())
-                main.Children.Add(new ForeignExchangeUserControl(foreign));
         }
-
     }
 }

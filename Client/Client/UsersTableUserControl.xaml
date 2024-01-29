@@ -22,7 +22,7 @@
                     <GridViewColumn Header="PermissionLevel">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding PermissionLevel}" TextChanged="UserInfoChanged_TextChanged"/>
+                                <TextBox Text="{Binding PermissionLevel}" TextChanged="UserInfoChanged_TextChanged" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -30,7 +30,7 @@
                     <GridViewColumn Header="FreeBalance">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding FreeBalance}"/>
+                                <TextBox Text="{Binding FreeBalance}" TextChanged="UserInfoChanged_TextChanged"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
