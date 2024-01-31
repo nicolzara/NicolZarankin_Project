@@ -78,13 +78,32 @@ namespace Client
                     
                     if(errors == 1)// open the menu page
                     {
-                        if(user.PermissionLevel == ((int)PermissionLevel.Teen))// opens the teen menu window
+                        if (user.PermissionLevel == ((int)PermissionLevel.Teen))
                         {
-
+                            TeenUserMenuWindow teenUserMenuWindow = new TeenUserMenuWindow(user);
+                            teenUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                            teenUserMenuWindow.Left = this.Left;
+                            teenUserMenuWindow.Top = this.Top;
+                            Close();
+                            teenUserMenuWindow.ShowDialog();
                         }
-                        else if(user.PermissionLevel == ((int)PermissionLevel.Normal))// opens the normal menu window
+                        else if (user.PermissionLevel == ((int)PermissionLevel.Normal))
                         {
-
+                            NormalUserMenuWindow normalUserMenuWindow = new NormalUserMenuWindow(user);
+                            normalUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                            normalUserMenuWindow.Left = this.Left;
+                            normalUserMenuWindow.Top = this.Top;
+                            Close();
+                            normalUserMenuWindow.ShowDialog();
+                        }
+                        else if (user.PermissionLevel == ((int)PermissionLevel.Manager))
+                        {
+                            ManagerUserMenuWindow managerUserMenuWindow = new ManagerUserMenuWindow(user);
+                            managerUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                            managerUserMenuWindow.Left = this.Left;
+                            managerUserMenuWindow.Top = this.Top;
+                            Close();
+                            managerUserMenuWindow.ShowDialog();
                         }
                     }
                     else if(errors == -1)// the username exists

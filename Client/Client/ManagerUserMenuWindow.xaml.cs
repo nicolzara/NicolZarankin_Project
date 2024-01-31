@@ -48,5 +48,10 @@ namespace Client
             grView.Children.Add(new ForeignExchangeListUserControl());
         }
 
+        private void AddForeignExchange_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new AddForeignExchangeUserControl());
+        }
     }
 }
