@@ -74,6 +74,9 @@
     <Compile Include="AddForeignExchangeUserControl.xaml.cs">
       <DependentUpon>AddForeignExchangeUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddStockUserControl.xaml.cs">
+      <DependentUpon>AddStockUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceReferenceVirWallet\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +109,10 @@
     </Compile>
     <Compile Include="Validation.cs" />
     <Page Include="AddForeignExchangeUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddStockUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

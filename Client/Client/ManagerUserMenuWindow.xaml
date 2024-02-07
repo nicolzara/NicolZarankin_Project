@@ -67,10 +67,15 @@
             <MenuItem Header="_Add">
             <MenuItem Header="Add foreign exchange" Click="AddForeignExchange_Click">
                 <MenuItem.Icon>
-                    <materialDesign:PackIcon Kind="AccountGroupOutline" />
+                        <materialDesign:PackIcon Kind="CurrencyUsd" />
                 </MenuItem.Icon>
             </MenuItem>
-        </MenuItem>
+                <MenuItem Header="Add stock" Click="AddStock_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Bitcoin" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
         </Menu>
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="grView"/>
     </Grid>

@@ -86,10 +86,10 @@ namespace ViewModel
         protected override void LoadParameters(BaseEntity entity)
         {
             Stock stock = entity as Stock;
-            command.Parameters.Clear();
-            command.Parameters.AddWithValue("@Id", stock.Id);
+            command.Parameters.Clear();            
             command.Parameters.AddWithValue("@StockName", stock.StockName);
             command.Parameters.AddWithValue("@StockSymbol", stock.StockSymbol);
+            command.Parameters.AddWithValue("@Id", stock.Id);
         }
         public int Insert(Stock stock)
         {

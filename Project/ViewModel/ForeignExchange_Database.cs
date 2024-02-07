@@ -91,9 +91,9 @@ namespace ViewModel
         {
             ForeignExchange foreignExchange = entity as ForeignExchange;
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@Id", foreignExchange.Id);
             command.Parameters.AddWithValue("@CurrencyName", foreignExchange.CurrencyName);
             command.Parameters.AddWithValue("@CurrencyCode", foreignExchange.CurrencyCode);
+            command.Parameters.AddWithValue("@Id", foreignExchange.Id);
         }
 
         public int Insert(ForeignExchange foreignExchange)

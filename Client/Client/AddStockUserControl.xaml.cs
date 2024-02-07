@@ -17,30 +17,27 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for AddForeignExchangeUserControl.xaml
+    /// Interaction logic for AddStockUserControl.xaml
     /// </summary>
-    public partial class AddForeignExchangeUserControl : UserControl
+    public partial class AddStockUserControl : UserControl
     {
-        public AddForeignExchangeUserControl()
+        public AddStockUserControl()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Clears the data of all the text boxes
-        /// </summary>
         private void ClearClick(object sender, RoutedEventArgs e)
         {
-            CurrencySymbolTextBox.Clear();
-            CurrencyNameTextBox.Clear();
+            StockNameTextBox.Clear();
+            StockSymbolTextBox.Clear();
         }
 
         private void AddClick(object sender, RoutedEventArgs e)
         {
-            ForeignExchange foreignExchange = new ForeignExchange();
-            foreignExchange.CurrencyName = CurrencyNameTextBox.Text;
-            foreignExchange.CurrencyCode = CurrencySymbolTextBox.Text;
-            (new ServiceClient()).InsertForeignExchange(foreignExchange);
+            Stock stock = new Stock();
+            stock.StockName = StockNameTextBox.Text;
+            stock.StockSymbol = StockSymbolTextBox.Text;
+            (new ServiceClient()).InsertStock(stock);
             MessageBox.Show("Successfuly added");
             ClearClick(sender, e);
         }
