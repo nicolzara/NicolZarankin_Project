@@ -24,7 +24,8 @@ namespace Client
         public StockListUserControl()
         {
             InitializeComponent();
-            foreach (Stock stock in (new ServiceClient()).SelectAllStocks())
+            StockList list = (new ServiceClient()).SelectAllStocks();
+            foreach (Stock stock in list)
                 main.Children.Add(new StockUserControl(stock));
         }
     }
