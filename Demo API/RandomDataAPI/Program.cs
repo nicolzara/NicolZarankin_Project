@@ -8,13 +8,14 @@ namespace RandomDataAPI
     {
         static void Main(string[] args)
         {
-            WebRequest();
+            WebRequestChuckNorris();
+            WebRequestDadJoke();
             
         }
 
-        public static void WebRequest()
+        public static void WebRequestChuckNorris()
         {
-            const string WEBSERVICE_URL = "https://randomfacts-api.p.rapidapi.com/random";
+            const string WEBSERVICE_URL = "https://api.chucknorris.io/jokes/random";
             try
             {
                 var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
@@ -22,15 +23,45 @@ namespace RandomDataAPI
                 {
                     webRequest.Method = "GET";
                     webRequest.Timeout = 12000;
-                    webRequest.Headers.Add("X-RapidAPI-Key", "70e11b6971msheecdcf2cb7d9876p13caa5jsnbaffc38cd0ab");
-                    webRequest.Headers.Add("X-RapidAPI-Host", "randomfacts-api.p.rapidapi.com");
 
                     using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
                     {
                         using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
                         {
                             var jsonResponse = sr.ReadToEnd();
-                            Console.WriteLine(String.Format("Response: {0}", jsonResponse));
+                            JsonObject json = new JsonObject();
+                            json = (JsonObject)JsonObject.Parse(jsonResponse);
+                            string joke = ((string)json["value"]);
+                            Console.WriteLine(String.Format("Response: {0}", joke));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public static void WebRequestDadJoke()
+        {
+            const string WEBSERVICE_URL = "https://icanhazdadjoke.com/";
+            try
+            {
+                var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
+                if (webRequest != null)
+                {
+                    webRequest.Method = "GET";
+                    webRequest.Timeout = 12000;
+
+                    using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
+                    {
+                        using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
+                        {
+                            var stringResponse = sr.ReadToEnd(); 
+                            string stringJoke = stringResponse.Split('\n')[13].Split('=')[2];
+                            
+                            Console.WriteLine(String.Format("Response: {0}", stringJoke));
                         }
                     }
                 }
