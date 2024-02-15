@@ -1,25 +1,14 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http.Headers;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.Json.Nodes;
 
-namespace RandomDataAPI
+namespace Client
 {
-    class Program
+    class webRequests
     {
-        static void Main(string[] args)
-        {
-            WebRequestChuckNorris();
-            WebRequestDadJoke();
-            WebRequestKanyeQuote();
-            WebRequestBadJokes();
-            WebRequestInsult();
-            WebRequestQuote();
-            WebRequestWhatDoesTrumpThink();
-            WebRequestCatFact();
-            WebRequestActivity();
-        }
-
-        public static void WebRequestChuckNorris()
+        public static string WebRequestChuckNorris()
         {
             const string WEBSERVICE_URL = "https://api.chucknorris.io/jokes/random";
             try
@@ -38,18 +27,20 @@ namespace RandomDataAPI
                             JsonObject json = new JsonObject();
                             json = (JsonObject)JsonObject.Parse(jsonResponse);
                             string joke = ((string)json["value"]);
-                            Console.WriteLine(String.Format("Chuck Norris joke: {0}", joke));
+                            return (String.Format("Chuck Norris joke: {0}", joke));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return "Error";
         }
 
-        public static void WebRequestDadJoke()
+        public static string WebRequestDadJoke()
         {
             const string WEBSERVICE_URL = "https://icanhazdadjoke.com/";
             try
@@ -64,22 +55,24 @@ namespace RandomDataAPI
                     {
                         using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
                         {
-                            var stringResponse = sr.ReadToEnd(); 
-                            string stringJoke = stringResponse.Split('<')[14].Split('=')[2].Split('/')[0].Remove(0,1);
+                            var stringResponse = sr.ReadToEnd();
+                            string stringJoke = stringResponse.Split('<')[14].Split('=')[2].Split('/')[0].Remove(0, 1);
                             stringJoke = stringJoke.Remove(stringJoke.Length - 2);
-                            
-                            Console.WriteLine(String.Format("Dad joke: {0}", stringJoke));
+
+                            return (String.Format("Dad joke: {0}", stringJoke));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return "Error";
         }
 
-        public static void WebRequestKanyeQuote()
+        public static string WebRequestKanyeQuote()
         {
             const string WEBSERVICE_URL = "https://api.kanye.rest/";
             try
@@ -98,18 +91,20 @@ namespace RandomDataAPI
                             JsonObject json = new JsonObject();
                             json = (JsonObject)JsonObject.Parse(jsonResponse);
                             string quote = ((string)json["quote"]);
-                            Console.WriteLine(String.Format("Kanye quote: {0}", quote));
+                            return (String.Format("Kanye quote: {0}", quote));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return ("Error");
         }
 
-        public static void WebRequestBadJokes()
+        public static string WebRequestRandomJokes()
         {
             const string WEBSERVICE_URL = "https://v2.jokeapi.dev/joke/Any";
             try
@@ -129,15 +124,17 @@ namespace RandomDataAPI
                             json = (JsonObject)JsonObject.Parse(jsonResponse);
                             string setup = ((string)json["setup"]);
                             string delivery = ((string)json["delivery"]);
-                            Console.WriteLine(String.Format("Random joke: {0} \n{1}", setup, delivery));
+                            return (String.Format("Random joke: {0} \n{1}", setup, delivery));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return ("Error");
         }
 
         public static void WebRequestInsult()

@@ -59,5 +59,11 @@ namespace Client
             grView.Children.Clear();
             grView.Children.Add(new AddStockUserControl());
         }
+
+        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new AboutUsUserControl());
+        }
     }
 }

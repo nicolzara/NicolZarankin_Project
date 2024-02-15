@@ -50,7 +50,7 @@
                         <materialDesign:PackIcon Kind="Bitcoin" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_About us">
+                <MenuItem Header="_About us" Click="AboutUs_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="InformationOutline" />
                     </MenuItem.Icon>
