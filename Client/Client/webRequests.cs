@@ -137,7 +137,7 @@ namespace Client
             return ("Error");
         }
 
-        public static void WebRequestInsult()
+        public static string WebRequestInsult()
         {
             const string WEBSERVICE_URL = "https://evilinsult.com/generate_insult.php?lang=en&type=json";
             try
@@ -156,18 +156,20 @@ namespace Client
                             JsonObject json = new JsonObject();
                             json = (JsonObject)JsonObject.Parse(jsonResponse);
                             string insult = ((string)json["insult"]);
-                            Console.WriteLine(String.Format("Insult: {0}", insult));
+                            return (String.Format("Insult: {0}", insult));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return("Error");
         }
 
-        public static void WebRequestQuote()
+        public static string WebRequestQuote()
         {
             const string WEBSERVICE_URL = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
             try
@@ -188,18 +190,20 @@ namespace Client
                             JsonObject json = new JsonObject();
                             json = (JsonObject)JsonObject.Parse(quoteString);
                             string quoteText = ((string)json["quoteText"]);
-                            Console.WriteLine(String.Format("Motivational quote: {0}", quoteText));
+                            return (String.Format("Motivational quote: {0}", quoteText));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return ("Error");
         }
 
-        public static void WebRequestWhatDoesTrumpThink()
+        public static string WebRequestWhatDoesTrumpThink()
         {
             const string WEBSERVICE_URL = "https://api.whatdoestrumpthink.com/api/v1/quotes/random";
             try
@@ -218,18 +222,20 @@ namespace Client
                             JsonObject json = new JsonObject();
                             json = (JsonObject)JsonObject.Parse(jsonResponse);
                             string message = ((string)json["message"]);
-                            Console.WriteLine(String.Format("What does Trump think: {0}", message));
+                            return (String.Format("What does Trump think: {0}", message));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return ("Error");
         }
 
-        public static void WebRequestCatFact()
+        public static string WebRequestCatFact()
         {
             const string WEBSERVICE_URL = "https://catfact.ninja/fact";
             try
@@ -248,18 +254,20 @@ namespace Client
                             JsonObject json = new JsonObject();
                             json = (JsonObject)JsonObject.Parse(jsonResponse);
                             string fact = ((string)json["fact"]);
-                            Console.WriteLine(String.Format("Cat fact: {0}", fact));
+                            return (String.Format("Cat fact: {0}", fact));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
+
+            return ("Error");
         }
 
-        public static void WebRequestActivity()
+        public static string WebRequestActivity()
         {
             const string WEBSERVICE_URL = "https://www.boredapi.com/api/activity";
             try
@@ -278,16 +286,18 @@ namespace Client
                             JsonObject json = new JsonObject();
                             json = (JsonObject)JsonObject.Parse(jsonResponse);
                             string activity = ((string)json["activity"]);
-                            Console.WriteLine(String.Format("Activity: {0}", activity));
+                            return (String.Format("Activity: {0}", activity));
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                return (ex.ToString());
             }
-        }
+
+            return ("Error");
+        }  
     }
 }
 

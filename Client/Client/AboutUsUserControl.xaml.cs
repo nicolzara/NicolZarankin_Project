@@ -18,6 +18,11 @@ namespace Client
             DadJokeTB.Text = webRequests.WebRequestDadJoke();
             KanyeQuoteTB.Text = webRequests.WebRequestKanyeQuote();
             RandomJokesTB.Text = webRequests.WebRequestRandomJokes();
+            InsultTB.Text = webRequests.WebRequestInsult();
+            QuoteTB.Text = webRequests.WebRequestQuote();
+            WhatDoesTrumpThinkTB.Text = webRequests.WebRequestWhatDoesTrumpThink();
+            CatFactTB.Text = webRequests.WebRequestCatFact();
+            ActivityTB.Text = webRequests.WebRequestActivity();
         }
     }
 }

@@ -13,10 +13,15 @@
              mc:Ignorable="d" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBlock x:Name="ChuckNorrisJokeTB" Margin="10"/>
-            <TextBlock x:Name="DadJokeTB" Margin="10"/>
-            <TextBlock x:Name="KanyeQuoteTB" Margin="10"/>
-            <TextBlock x:Name="RandomJokesTB" Margin="10"/>
+            <TextBlock x:Name="ChuckNorrisJokeTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="DadJokeTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="KanyeQuoteTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="RandomJokesTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="InsultTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="QuoteTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="WhatDoesTrumpThinkTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="CatFactTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="ActivityTB" Margin="10" TextWrapping="WrapWithOverflow"/>
         </StackPanel>
     </Grid>
 </UserControl>
