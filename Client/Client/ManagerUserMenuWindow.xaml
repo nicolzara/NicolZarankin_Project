@@ -27,7 +27,7 @@
             </Button.Background>
         </Button>
         <Menu IsMainMenu="True" Grid.Column="1">
-            <MenuItem Header="_Wallet">
+            <MenuItem Header="_Wallet" >
                 <MenuItem Header="Foreign Exchange">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="CurrencyUsd" />
