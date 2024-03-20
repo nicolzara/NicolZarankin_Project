@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Client.ForeignExchangeTransactionsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Client"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="LightGray"
+             Background="#00101d"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" Height="550" Width="800">
+    <UserControl.Resources>
+        <local:BooleanToBuyOrSellConverter x:Key="BooleanToBuyOrSellConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <ListView x:Name="CurrencyTransactionsListView" Grid.Row="1" Grid.Column="1" FontSize="9">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding User.UserName}" Header="UserName" />
+                    <GridViewColumn DisplayMemberBinding="{Binding ForeignExchange.CurrencyName}" Header="Currency" />
+                    <GridViewColumn DisplayMemberBinding="{Binding CurrencyAmount}" Header="Currency Amount" />
+                    <GridViewColumn DisplayMemberBinding="{Binding CurrencyValue}" Header="Currency Value" />
+                    <GridViewColumn DisplayMemberBinding="{Binding BuyOrSell, Converter={StaticResource BooleanToBuyOrSellConverter}}" Header="BuyOrSell" />
+                    <GridViewColumn DisplayMemberBinding="{Binding DateSignature}" Header="Date Signature" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

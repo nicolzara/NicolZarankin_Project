@@ -91,6 +91,54 @@
   <wsdl:message name="IService_DeleteStock_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteStockResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_SelectAllForeignExchangeTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllForeignExchangeTransactions" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectAllForeignExchangeTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllForeignExchangeTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertForeignExchangeTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertForeignExchangeTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertForeignExchangeTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertForeignExchangeTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateForeignExchangeTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateForeignExchangeTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateForeignExchangeTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateForeignExchangeTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteForeignExchangeTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteForeignExchangeTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteForeignExchangeTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteForeignExchangeTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectAllStockTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllStockTransactions" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectAllStockTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllStockTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertStockTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertStockTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertStockTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertStockTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateStockTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStockTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateStockTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStockTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteStockTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStockTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteStockTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStockTransactionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="SelectAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectAllUsers" message="tns:IService_SelectAllUsers_InputMessage" />
@@ -147,6 +195,38 @@
     <wsdl:operation name="DeleteStock">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteStock" message="tns:IService_DeleteStock_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteStockResponse" message="tns:IService_DeleteStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllForeignExchangeTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectAllForeignExchangeTransactions" message="tns:IService_SelectAllForeignExchangeTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectAllForeignExchangeTransactionsResponse" message="tns:IService_SelectAllForeignExchangeTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertForeignExchangeTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertForeignExchangeTransaction" message="tns:IService_InsertForeignExchangeTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertForeignExchangeTransactionResponse" message="tns:IService_InsertForeignExchangeTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateForeignExchangeTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateForeignExchangeTransaction" message="tns:IService_UpdateForeignExchangeTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateForeignExchangeTransactionResponse" message="tns:IService_UpdateForeignExchangeTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteForeignExchangeTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteForeignExchangeTransaction" message="tns:IService_DeleteForeignExchangeTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteForeignExchangeTransactionResponse" message="tns:IService_DeleteForeignExchangeTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllStockTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectAllStockTransactions" message="tns:IService_SelectAllStockTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectAllStockTransactionsResponse" message="tns:IService_SelectAllStockTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertStockTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertStockTransaction" message="tns:IService_InsertStockTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertStockTransactionResponse" message="tns:IService_InsertStockTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStockTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateStockTransaction" message="tns:IService_UpdateStockTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateStockTransactionResponse" message="tns:IService_UpdateStockTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStockTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteStockTransaction" message="tns:IService_DeleteStockTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteStockTransactionResponse" message="tns:IService_DeleteStockTransaction_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -270,6 +350,78 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteStock">
       <soap:operation soapAction="http://tempuri.org/IService/DeleteStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllForeignExchangeTransactions">
+      <soap:operation soapAction="http://tempuri.org/IService/SelectAllForeignExchangeTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertForeignExchangeTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertForeignExchangeTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateForeignExchangeTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateForeignExchangeTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteForeignExchangeTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteForeignExchangeTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllStockTransactions">
+      <soap:operation soapAction="http://tempuri.org/IService/SelectAllStockTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertStockTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertStockTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStockTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateStockTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStockTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteStockTransaction" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -76,6 +76,19 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+
+            <MenuItem Header="_Transactions">
+                <MenuItem Header="foreign exchange" Click="ForeignExchangeTransactions_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="CurrencyUsd" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="stock" Click="StockTransactions_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Bitcoin" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
         </Menu>
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="grView"/>
     </Grid>

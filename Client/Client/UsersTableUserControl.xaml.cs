@@ -28,7 +28,7 @@ namespace Client
         {
             InitializeComponent();
             GetUsers();
-            UsersListView.MouseDoubleClick += UsersListView_MouseDoubleClick;
+           // UsersListView.MouseDoubleClick += UsersListView_MouseDoubleClick;
 
         }
 
@@ -59,19 +59,19 @@ namespace Client
             }
         }
 
-        private void UsersListView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            for (int itemIndex = 0; itemIndex < UsersListView.Items.Count; itemIndex++)
-            {
-                ListViewItem item = (ListViewItem)UsersListView.Items[itemIndex];
-                Rectangle itemRect = item.GetBounds(ItemBoundsPortion.Label);
-                if (itemRect.Contains(e.Location))
-                {
-                    item.Checked = !item.Checked;
-                    break;
-                }
-            }
-        }
+        //private void UsersListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        //{
+        //    for (int itemIndex = 0; itemIndex < UsersListView.Items.Count; itemIndex++)
+        //    {
+        //        ListViewItem item = (ListViewItem)UsersListView.Items[itemIndex];
+        //        Rectangle itemRect = item.GetBounds(ItemBoundsPortion.Label);
+        //        if (itemRect.Contains(e.Location))
+        //        {
+        //            item.Checked = !item.Checked;
+        //            break;
+        //        }
+        //    }
+        //}
 
 
     }

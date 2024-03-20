@@ -65,5 +65,17 @@ namespace Client
             grView.Children.Clear();
             grView.Children.Add(new AboutUsUserControl());
         }
+
+        private void ForeignExchangeTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new ForeignExchangeTransactionsUserControl());
+        }
+
+        private void StockTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            
+        }
     }
 }
