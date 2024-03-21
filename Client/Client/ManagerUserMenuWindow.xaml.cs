@@ -75,7 +75,7 @@ namespace Client
         private void StockTransactions_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();
-            
+            grView.Children.Add(new StockTransactionsUserControl());
         }
     }
 }

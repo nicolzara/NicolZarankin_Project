@@ -21,7 +21,7 @@ namespace ViewModel
             Stock_Database stock_Database = new Stock_Database();
             StockTransaction stockTransaction = entity as StockTransaction;
 
-            stockTransaction.Id = int.Parse(reader["Id"].ToString());
+            stockTransaction.Id = int.Parse(reader["TransactionId"].ToString());
             stockTransaction.User = user_Database.SelectById(int.Parse(reader["UserId"].ToString()));   
             stockTransaction.Stock = stock_Database.SelectById(int.Parse(reader["StockId"].ToString()));
             stockTransaction.StockAmount = int.Parse(reader["StockAmount"].ToString());
