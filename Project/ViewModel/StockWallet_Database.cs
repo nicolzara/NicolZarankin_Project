@@ -34,17 +34,12 @@ namespace ViewModel
             return stockWalletList;
         }
 
-        public StockWallet SelectByUser(User user)
+        public StockWalletList SelectByUser(User user)
         {
             command.CommandText = "SELECT * FROM StockWallet_Table WHERE UserId=" + user.Id;
             StockWalletList stockWalletList = new StockWalletList(ExecuteCommand());
 
-            if (stockWalletList.Count == 0)
-            {
-                return null;
-            }
-
-            return stockWalletList[0];
+            return stockWalletList;
         }
 
         protected override void LoadParameters(BaseEntity entity)

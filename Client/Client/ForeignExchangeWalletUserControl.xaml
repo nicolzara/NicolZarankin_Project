@@ -12,6 +12,15 @@
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
              mc:Ignorable="d" Height="550" Width="800">
     <Grid>
-            
+        <ListView x:Name="CurrencyWalletListView" Grid.Row="1" Grid.Column="1" FontSize="9">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding User.UserName}" Header="UserName" />
+                    <GridViewColumn DisplayMemberBinding="{Binding ForeignExchange.CurrencyName}" Header="Currency" />
+                    <GridViewColumn DisplayMemberBinding="{Binding CurrencyAmount}" Header="Currency Amount" />
+                    <GridViewColumn DisplayMemberBinding="{Binding ForeignExchange.Value}" Header="Currency Value"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

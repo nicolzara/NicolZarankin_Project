@@ -144,6 +144,9 @@
     <Compile Include="StockUserControl.xaml.cs">
       <DependentUpon>StockUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StockWalletUserControl.xaml.cs">
+      <DependentUpon>StockWalletUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeenUserMenuWindow.xaml.cs">
       <DependentUpon>TeenUserMenuWindow.xaml</DependentUpon>
     </Compile>
@@ -221,6 +224,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StockWalletUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TeenUserMenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -254,10 +261,16 @@
     <None Include="Connected Services\ServiceReferenceVirWallet\Client.ServiceReferenceVirWallet.ForeignExchangeTransactionList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReferenceVirWallet\Client.ServiceReferenceVirWallet.ForeignExchangeWalletList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReferenceVirWallet\Client.ServiceReferenceVirWallet.StockList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceVirWallet\Client.ServiceReferenceVirWallet.StockTransactionList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceVirWallet\Client.ServiceReferenceVirWallet.StockWalletList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceVirWallet\Client.ServiceReferenceVirWallet.User.datasource">

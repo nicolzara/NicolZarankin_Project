@@ -17,16 +17,16 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for ForeignExchangeWalletUserControl.xaml
+    /// Interaction logic for StockWalletUserControl.xaml
     /// </summary>
-    public partial class ForeignExchangeWalletUserControl : UserControl
+    public partial class StockWalletUserControl : UserControl
     {
         private User user;
-        public ForeignExchangeWalletUserControl(User user, bool all)
+        public StockWalletUserControl(User user, bool all)
         {
             this.user = user;
             InitializeComponent();
-            if (all)
+            if(all)
             {
                 GetAllWallets();
             }
@@ -34,19 +34,18 @@ namespace Client
             {
                 GetWallets();
             }
-            
         }
 
         private void GetWallets()
         {
-            ForeignExchangeWalletList list = new ServiceClient().SelectForeignExchangeWalletsByUser(user);
-            CurrencyWalletListView.ItemsSource = list;
+            StockWalletList list = new ServiceClient().SelectStockWalletsByUser(user);
+            StockWalletListView.ItemsSource = list;
         }
 
         private void GetAllWallets()
         {
-            ForeignExchangeWalletList list = new ServiceClient().SelectAllForeignExchangeWallets();
-            CurrencyWalletListView.ItemsSource = list;
+            StockWalletList list = new ServiceClient().SelectAllStockWallets();
+            StockWalletListView.ItemsSource = list;
         }
     }
 }

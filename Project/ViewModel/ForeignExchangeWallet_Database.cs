@@ -34,17 +34,12 @@ namespace ViewModel
             return foreignExchangeWalletList;
         }
 
-        public ForeignExchangeWallet SelectByUser(User user)
+        public ForeignExchangeWalletList SelectByUser(User user)
         {
             command.CommandText = "SELECT * FROM ForeignExchangeWallet_Table WHERE UserId=" + user.Id;
             ForeignExchangeWalletList foreignExchangeWalletList = new ForeignExchangeWalletList(ExecuteCommand());
 
-            if (foreignExchangeWalletList.Count == 0)
-            {
-                return null;
-            }
-
-            return foreignExchangeWalletList[0];
+            return foreignExchangeWalletList;
         }
 
         protected override void LoadParameters(BaseEntity entity)

@@ -28,12 +28,22 @@
         </Button>
         <Menu IsMainMenu="True" Grid.Column="1">
             <MenuItem Header="_Wallet" >
-                <MenuItem Header="Foreign Exchange">
+                <MenuItem Header="Foreign Exchange" Click="ForeignExchangeWallet_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="CurrencyUsd" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Stock">
+                <MenuItem Header="All Foreign Exchange Wallets" Click="AllForeignExchangeWallet_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="CurrencyUsd" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Stock" Click="StockWallet_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Bitcoin" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="All Stock Wallets" Click="AllStockWallet_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Bitcoin" />
                     </MenuItem.Icon>

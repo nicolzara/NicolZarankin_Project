@@ -37,6 +37,20 @@ namespace WcfServiceLibrary
         [OperationContract] int InsertStockTransaction(StockTransaction StockTransaction);
         [OperationContract] int UpdateStockTransaction(StockTransaction StockTransaction);
         [OperationContract] int DeleteStockTransaction(StockTransaction StockTransaction);
+
+        //Foreign Exchange Wallet
+        [OperationContract] ForeignExchangeWalletList SelectAllForeignExchangeWallets();
+        [OperationContract] ForeignExchangeWalletList SelectForeignExchangeWalletsByUser(User user);
+        [OperationContract] int InsertForeignExchangeWallet(ForeignExchangeWallet foreignExchangeWallet);
+        [OperationContract] int UpdateForeignExchangeWallet(ForeignExchangeWallet foreignExchangeWallet);
+        [OperationContract] int DeleteForeignExchangeWallet(ForeignExchangeWallet foreignExchangeWallet);
+
+        //Stock Wallet
+        [OperationContract] StockWalletList SelectAllStockWallets();
+        [OperationContract] StockWalletList SelectStockWalletsByUser(User user);
+        [OperationContract] int InsertStockWallet(StockWallet stockWallet);
+        [OperationContract] int UpdateStockWallet(StockWallet stockWallet);
+        [OperationContract] int DeleteStockWallet(StockWallet stockWallet);
     }
 
 }

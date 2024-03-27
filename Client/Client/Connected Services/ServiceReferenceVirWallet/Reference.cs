@@ -147,6 +147,8 @@ namespace Client.ServiceReferenceVirWallet {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Client.ServiceReferenceVirWallet.Stock))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Client.ServiceReferenceVirWallet.ForeignExchangeTransaction))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Client.ServiceReferenceVirWallet.StockTransaction))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Client.ServiceReferenceVirWallet.ForeignExchangeWallet))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Client.ServiceReferenceVirWallet.StockWallet))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Client.ServiceReferenceVirWallet.User))]
     public partial class BaseEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -507,6 +509,116 @@ namespace Client.ServiceReferenceVirWallet {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ForeignExchangeWallet", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class ForeignExchangeWallet : Client.ServiceReferenceVirWallet.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CurrencyAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServiceReferenceVirWallet.ForeignExchange ForeignExchangeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServiceReferenceVirWallet.User UserField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CurrencyAmount {
+            get {
+                return this.CurrencyAmountField;
+            }
+            set {
+                if ((this.CurrencyAmountField.Equals(value) != true)) {
+                    this.CurrencyAmountField = value;
+                    this.RaisePropertyChanged("CurrencyAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServiceReferenceVirWallet.ForeignExchange ForeignExchange {
+            get {
+                return this.ForeignExchangeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ForeignExchangeField, value) != true)) {
+                    this.ForeignExchangeField = value;
+                    this.RaisePropertyChanged("ForeignExchange");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServiceReferenceVirWallet.User User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StockWallet", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class StockWallet : Client.ServiceReferenceVirWallet.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServiceReferenceVirWallet.Stock StockField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StockAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServiceReferenceVirWallet.User UserField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServiceReferenceVirWallet.Stock Stock {
+            get {
+                return this.StockField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StockField, value) != true)) {
+                    this.StockField = value;
+                    this.RaisePropertyChanged("Stock");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StockAmount {
+            get {
+                return this.StockAmountField;
+            }
+            set {
+                if ((this.StockAmountField.Equals(value) != true)) {
+                    this.StockAmountField = value;
+                    this.RaisePropertyChanged("StockAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServiceReferenceVirWallet.User User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ForeignExchangeList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="ForeignExchange")]
     [System.SerializableAttribute()]
     public class ForeignExchangeList : System.Collections.Generic.List<Client.ServiceReferenceVirWallet.ForeignExchange> {
@@ -531,6 +643,20 @@ namespace Client.ServiceReferenceVirWallet {
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="StockTransactionList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="StockTransaction")]
     [System.SerializableAttribute()]
     public class StockTransactionList : System.Collections.Generic.List<Client.ServiceReferenceVirWallet.StockTransaction> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ForeignExchangeWalletList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="ForeignExchangeWallet")]
+    [System.SerializableAttribute()]
+    public class ForeignExchangeWalletList : System.Collections.Generic.List<Client.ServiceReferenceVirWallet.ForeignExchangeWallet> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="StockWalletList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="StockWallet")]
+    [System.SerializableAttribute()]
+    public class StockWalletList : System.Collections.Generic.List<Client.ServiceReferenceVirWallet.StockWallet> {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -668,6 +794,66 @@ namespace Client.ServiceReferenceVirWallet {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStockTransaction", ReplyAction="http://tempuri.org/IService/DeleteStockTransactionResponse")]
         System.Threading.Tasks.Task<int> DeleteStockTransactionAsync(Client.ServiceReferenceVirWallet.StockTransaction StockTransaction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectAllForeignExchangeWallets", ReplyAction="http://tempuri.org/IService/SelectAllForeignExchangeWalletsResponse")]
+        Client.ServiceReferenceVirWallet.ForeignExchangeWalletList SelectAllForeignExchangeWallets();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectAllForeignExchangeWallets", ReplyAction="http://tempuri.org/IService/SelectAllForeignExchangeWalletsResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeWalletList> SelectAllForeignExchangeWalletsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectForeignExchangeWalletsByUser", ReplyAction="http://tempuri.org/IService/SelectForeignExchangeWalletsByUserResponse")]
+        Client.ServiceReferenceVirWallet.ForeignExchangeWalletList SelectForeignExchangeWalletsByUser(Client.ServiceReferenceVirWallet.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectForeignExchangeWalletsByUser", ReplyAction="http://tempuri.org/IService/SelectForeignExchangeWalletsByUserResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeWalletList> SelectForeignExchangeWalletsByUserAsync(Client.ServiceReferenceVirWallet.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertForeignExchangeWallet", ReplyAction="http://tempuri.org/IService/InsertForeignExchangeWalletResponse")]
+        int InsertForeignExchangeWallet(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertForeignExchangeWallet", ReplyAction="http://tempuri.org/IService/InsertForeignExchangeWalletResponse")]
+        System.Threading.Tasks.Task<int> InsertForeignExchangeWalletAsync(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateForeignExchangeWallet", ReplyAction="http://tempuri.org/IService/UpdateForeignExchangeWalletResponse")]
+        int UpdateForeignExchangeWallet(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateForeignExchangeWallet", ReplyAction="http://tempuri.org/IService/UpdateForeignExchangeWalletResponse")]
+        System.Threading.Tasks.Task<int> UpdateForeignExchangeWalletAsync(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteForeignExchangeWallet", ReplyAction="http://tempuri.org/IService/DeleteForeignExchangeWalletResponse")]
+        int DeleteForeignExchangeWallet(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteForeignExchangeWallet", ReplyAction="http://tempuri.org/IService/DeleteForeignExchangeWalletResponse")]
+        System.Threading.Tasks.Task<int> DeleteForeignExchangeWalletAsync(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectAllStockWallets", ReplyAction="http://tempuri.org/IService/SelectAllStockWalletsResponse")]
+        Client.ServiceReferenceVirWallet.StockWalletList SelectAllStockWallets();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectAllStockWallets", ReplyAction="http://tempuri.org/IService/SelectAllStockWalletsResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockWalletList> SelectAllStockWalletsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectStockWalletsByUser", ReplyAction="http://tempuri.org/IService/SelectStockWalletsByUserResponse")]
+        Client.ServiceReferenceVirWallet.StockWalletList SelectStockWalletsByUser(Client.ServiceReferenceVirWallet.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectStockWalletsByUser", ReplyAction="http://tempuri.org/IService/SelectStockWalletsByUserResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockWalletList> SelectStockWalletsByUserAsync(Client.ServiceReferenceVirWallet.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertStockWallet", ReplyAction="http://tempuri.org/IService/InsertStockWalletResponse")]
+        int InsertStockWallet(Client.ServiceReferenceVirWallet.StockWallet stockWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertStockWallet", ReplyAction="http://tempuri.org/IService/InsertStockWalletResponse")]
+        System.Threading.Tasks.Task<int> InsertStockWalletAsync(Client.ServiceReferenceVirWallet.StockWallet stockWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStockWallet", ReplyAction="http://tempuri.org/IService/UpdateStockWalletResponse")]
+        int UpdateStockWallet(Client.ServiceReferenceVirWallet.StockWallet stockWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStockWallet", ReplyAction="http://tempuri.org/IService/UpdateStockWalletResponse")]
+        System.Threading.Tasks.Task<int> UpdateStockWalletAsync(Client.ServiceReferenceVirWallet.StockWallet stockWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStockWallet", ReplyAction="http://tempuri.org/IService/DeleteStockWalletResponse")]
+        int DeleteStockWallet(Client.ServiceReferenceVirWallet.StockWallet stockWallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStockWallet", ReplyAction="http://tempuri.org/IService/DeleteStockWalletResponse")]
+        System.Threading.Tasks.Task<int> DeleteStockWalletAsync(Client.ServiceReferenceVirWallet.StockWallet stockWallet);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -871,6 +1057,86 @@ namespace Client.ServiceReferenceVirWallet {
         
         public System.Threading.Tasks.Task<int> DeleteStockTransactionAsync(Client.ServiceReferenceVirWallet.StockTransaction StockTransaction) {
             return base.Channel.DeleteStockTransactionAsync(StockTransaction);
+        }
+        
+        public Client.ServiceReferenceVirWallet.ForeignExchangeWalletList SelectAllForeignExchangeWallets() {
+            return base.Channel.SelectAllForeignExchangeWallets();
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeWalletList> SelectAllForeignExchangeWalletsAsync() {
+            return base.Channel.SelectAllForeignExchangeWalletsAsync();
+        }
+        
+        public Client.ServiceReferenceVirWallet.ForeignExchangeWalletList SelectForeignExchangeWalletsByUser(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectForeignExchangeWalletsByUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeWalletList> SelectForeignExchangeWalletsByUserAsync(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectForeignExchangeWalletsByUserAsync(user);
+        }
+        
+        public int InsertForeignExchangeWallet(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet) {
+            return base.Channel.InsertForeignExchangeWallet(foreignExchangeWallet);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertForeignExchangeWalletAsync(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet) {
+            return base.Channel.InsertForeignExchangeWalletAsync(foreignExchangeWallet);
+        }
+        
+        public int UpdateForeignExchangeWallet(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet) {
+            return base.Channel.UpdateForeignExchangeWallet(foreignExchangeWallet);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateForeignExchangeWalletAsync(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet) {
+            return base.Channel.UpdateForeignExchangeWalletAsync(foreignExchangeWallet);
+        }
+        
+        public int DeleteForeignExchangeWallet(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet) {
+            return base.Channel.DeleteForeignExchangeWallet(foreignExchangeWallet);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteForeignExchangeWalletAsync(Client.ServiceReferenceVirWallet.ForeignExchangeWallet foreignExchangeWallet) {
+            return base.Channel.DeleteForeignExchangeWalletAsync(foreignExchangeWallet);
+        }
+        
+        public Client.ServiceReferenceVirWallet.StockWalletList SelectAllStockWallets() {
+            return base.Channel.SelectAllStockWallets();
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockWalletList> SelectAllStockWalletsAsync() {
+            return base.Channel.SelectAllStockWalletsAsync();
+        }
+        
+        public Client.ServiceReferenceVirWallet.StockWalletList SelectStockWalletsByUser(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectStockWalletsByUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockWalletList> SelectStockWalletsByUserAsync(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectStockWalletsByUserAsync(user);
+        }
+        
+        public int InsertStockWallet(Client.ServiceReferenceVirWallet.StockWallet stockWallet) {
+            return base.Channel.InsertStockWallet(stockWallet);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertStockWalletAsync(Client.ServiceReferenceVirWallet.StockWallet stockWallet) {
+            return base.Channel.InsertStockWalletAsync(stockWallet);
+        }
+        
+        public int UpdateStockWallet(Client.ServiceReferenceVirWallet.StockWallet stockWallet) {
+            return base.Channel.UpdateStockWallet(stockWallet);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateStockWalletAsync(Client.ServiceReferenceVirWallet.StockWallet stockWallet) {
+            return base.Channel.UpdateStockWalletAsync(stockWallet);
+        }
+        
+        public int DeleteStockWallet(Client.ServiceReferenceVirWallet.StockWallet stockWallet) {
+            return base.Channel.DeleteStockWallet(stockWallet);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteStockWalletAsync(Client.ServiceReferenceVirWallet.StockWallet stockWallet) {
+            return base.Channel.DeleteStockWalletAsync(stockWallet);
         }
     }
 }

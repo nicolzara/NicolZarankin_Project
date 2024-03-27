@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Runtime.Remoting.Messaging;
 using System.Text.Json.Nodes;
 
 namespace ViewModel
@@ -76,9 +77,31 @@ namespace ViewModel
 
         public ForeignExchange SelectById(int Id)
         {
+            ForeignExchangeList foreignExchangeList = this.SelectAll();
+            ForeignExchange wanted = this.SelectByIdHelper(Id);
+            if (foreignExchangeList.Count == 0)
+            {
+                return null;
+            }
+            else
+            { 
+                foreach (var foreignExchange in foreignExchangeList)
+                {
+                    if(foreignExchange.CurrencyCode == wanted.CurrencyCode)
+                    {
+                        return foreignExchange;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private ForeignExchange SelectByIdHelper(int Id)
+        {
             command.CommandText = $"SELECT * FROM ForeignExchange_Table WHERE Id={Id}";
             ForeignExchangeList foreignExchangeList = new ForeignExchangeList(ExecuteCommand());
-
+            
             if (foreignExchangeList.Count == 0)
             {
                 return null;
