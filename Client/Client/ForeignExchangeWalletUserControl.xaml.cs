@@ -48,5 +48,20 @@ namespace Client
             ForeignExchangeWalletList list = new ServiceClient().SelectAllForeignExchangeWallets();
             CurrencyWalletListView.ItemsSource = list;
         }
+
+        private void PopupBox_Opened(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PopupBox_Closed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

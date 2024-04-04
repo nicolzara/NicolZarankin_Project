@@ -11,6 +11,14 @@
              TextElement.FontSize="14"
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
              mc:Ignorable="d" Height="550" Width="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <ListView x:Name="CurrencyWalletListView" Grid.Row="1" Grid.Column="1" FontSize="9">
             <ListView.View>
@@ -22,5 +30,23 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <StackPanel HorizontalAlignment="Right" Margin="0, 0, 20, 0">
+            <materialDesign:PopupBox
+Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                Background="LightGray"
+                Foreground="#00101d"
+PlacementMode="BottomAndAlignCentres"
+ToolTipService.Placement="Right"
+ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionPopupBox"
+  Opened="PopupBox_Opened"
+  Closed="PopupBox_Closed">
+                <StackPanel>
+                    <Button ToolTip="Transfer Money" Click="Button_Click">
+                        <materialDesign:PackIcon Kind="CurrencyUsd" />
+                    </Button>
+                </StackPanel>
+            </materialDesign:PopupBox>
+        </StackPanel>
     </Grid>
 </UserControl>
