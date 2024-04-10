@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ServiceReferenceVirWallet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace Client
     /// </summary>
     public partial class TransferForeignExchangeUserControl : UserControl
     {
-        public TransferForeignExchangeUserControl()
+        private User user;
+        public TransferForeignExchangeUserControl(User user)
         {
+            this.user = user;
             InitializeComponent();
+
+        }
+
+        private void LoadCurrencies()
+        {
+            ForeignExchangeList list = new ServiceClient().SelectAllForeignExchanges();
+            CurrencyComboBox.ItemsSource = list;
+        }
+
+        private void TranferClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClearClick(object sender, RoutedEventArgs e)
+        {
+            CurrencyComboBox.SelectedIndex = -1;
         }
     }
 }

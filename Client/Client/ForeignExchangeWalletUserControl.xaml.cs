@@ -22,9 +22,12 @@ namespace Client
     public partial class ForeignExchangeWalletUserControl : UserControl
     {
         private User user;
-        public ForeignExchangeWalletUserControl(User user, bool all)
+        private ManagerUserMenuWindow parent;
+
+        public ForeignExchangeWalletUserControl(User user, bool all, ManagerUserMenuWindow managerUserMenuWindow)
         {
             this.user = user;
+            this.parent = managerUserMenuWindow;
             InitializeComponent();
             if (all)
             {
@@ -61,7 +64,7 @@ namespace Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            parent.Open();
         }
     }
 }

@@ -83,7 +83,7 @@ namespace Client
         private void ForeignExchangeWallet_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();
-            grView.Children.Add(new ForeignExchangeWalletUserControl(user, false));
+            grView.Children.Add(new ForeignExchangeWalletUserControl(user, false,this));
         }
 
         private void AllForeignExchangeWallet_Click(object sender, RoutedEventArgs e)
@@ -103,5 +103,7 @@ namespace Client
             grView.Children.Clear();
             grView.Children.Add(new StockWalletUserControl(user, true));
         }
+        public void Open()
+        { }
     }
 }
