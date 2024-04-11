@@ -26,7 +26,7 @@ namespace Client
         {
             this.user = user;
             InitializeComponent();
-
+            LoadCurrencies();
         }
 
         private void LoadCurrencies()
@@ -35,7 +35,7 @@ namespace Client
             CurrencyComboBox.ItemsSource = list;
         }
 
-        private void TranferClick(object sender, RoutedEventArgs e)
+        private void TransferClick(object sender, RoutedEventArgs e)
         {
 
         }
@@ -43,6 +43,20 @@ namespace Client
         private void ClearClick(object sender, RoutedEventArgs e)
         {
             CurrencyComboBox.SelectedIndex = -1;
+            BuyOrSellComboBox.SelectedIndex = -1;
+            CurrencyAmountTextBox.Clear();
+        }
+
+        private void CurrencyAmountTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           ForeignExchange foreignExchange = CurrencyComboBox.SelectedItem as ForeignExchange;
+            if (foreignExchange == null) return;
+
+        }
+
+        private void TotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

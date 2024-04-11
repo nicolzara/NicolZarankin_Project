@@ -13,32 +13,57 @@
             mc:Ignorable="d" Height="550" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="0.225*" />
-            <RowDefinition Height="0.225*" />
-            <RowDefinition Height="0.225*" />
-            <RowDefinition Height="0.225*" />
-            <RowDefinition Height="0.27*" />
-            <RowDefinition Height="0.225*" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1">
-            <ComboBox materialDesign:HintAssist.Hint="Currency" x:Name="CurrencyComboBox" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,10,0,0" ItemsSource="{Binding Path=CurrencyCode}"/>
 
+        <StackPanel Grid.Row="0">
+            <TextBlock HorizontalAlignment="Center" Foreground="LightGray" FontSize="20">Tranfer Foreign Exchange</TextBlock>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <ComboBox materialDesign:HintAssist.Hint="Currency" x:Name="CurrencyComboBox" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,10,0,0"
+                      ItemsSource="{Binding Path=ForeignExchange}" SelectedItem="{Binding Path=CurrencyCode}" DisplayMemberPath="CurrencyCode" SelectedValuePath="CurrencyCode"/>
+            <ComboBox materialDesign:HintAssist.Hint="Buy or Sell?" x:Name="BuyOrSellComboBox" Width="200" Height="30" HorizontalAlignment="Center" Margin="10,10,0,0">
+                <ComboBoxItem>
+                    Buy
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Sell
+                </ComboBoxItem>
+            </ComboBox>
+
+            <TextBox x:Name="CurrencyAmountTextBox"
+             Foreground="LightGray"
+             materialDesign:HintAssist.Hint="Amount"
+             materialDesign:HintAssist.HelperText="Enter the wanted amount"
+             Width="200"
+             Height="30"
+             HorizontalAlignment="Center" Margin="10,10,0,0" TextChanged="CurrencyAmountTextBox_TextChanged"/>
+
+            <TextBox x:Name="TotalTextBox"
+                Foreground="LightGray"
+                materialDesign:HintAssist.Hint="Total"
+                materialDesign:HintAssist.HelperText="Total amount in USD"
+                Width="200"
+                Height="30"
+                HorizontalAlignment="Center" Margin="10,10,0,0" TextChanged="TotalTextBox_TextChanged"/>
         </StackPanel>
         
         
         
 
-        <StackPanel Grid.Row="6">
+        <StackPanel Grid.Row="2">
             <StackPanel Orientation="Horizontal"
                    HorizontalAlignment="Center">
                 <Button  Style="{StaticResource MaterialDesignRaisedButton}"
-                    Width="76"
+                    Width="85"
                     Foreground="LightGray"
                     ToolTip="Resource name: MaterialDesignRaisedButton"
                     Click="TransferClick">Transfer</Button>
                 <Button Style="{StaticResource MaterialDesignRaisedButton}"
-                   Width="75"
+                   Width="85"
                    Foreground="LightGray"
                    ToolTip="Resource name: MaterialDesignRaisedButton"
                    Click="ClearClick">Clear</Button>
