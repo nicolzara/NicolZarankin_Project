@@ -1,28 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ViewModel.Stock_Database" Collapsed="true">
+    <Position X="23.5" Y="8.5" Width="1.5" />
+    <InheritanceLine Type="ViewModel.Base_Database" ManuallyRouted="true">
+      <Path>
+        <Point X="25.75" Y="6.062" />
+        <Point X="25.75" Y="6.5" />
+        <Point X="24.66" Y="6.5" />
+        <Point X="24.66" Y="8.26" />
+        <Point X="23.428" Y="8.26" />
+        <Point X="23.428" Y="8.875" />
+        <Point X="23.5" Y="8.875" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAIAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
+      <FileName>Stock_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.StockTransactions_Database" Collapsed="true">
+    <Position X="24.75" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
+      <FileName>StockTransactions_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.StockWallet_Database" Collapsed="true">
+    <Position X="25.25" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAIAACEAA=</HashCode>
+      <FileName>StockWallet_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="ViewModel.User_Database" Collapsed="true">
-    <Position X="6.5" Y="4.5" Width="1.5" />
+    <Position X="21.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAAKAAAAAAAAAAAAAAAgEAAAAAAAAQAAACEAA=</HashCode>
       <FileName>User_Database.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ViewModel.Stock_Database" Collapsed="true">
-    <Position X="11" Y="4.5" Width="1.5" />
+  <Class Name="ViewModel.ForeignExchangeWallet_Database" Collapsed="true">
+    <Position X="27.5" Y="6.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAIAACEAA=</HashCode>
+      <FileName>ForeignExchangeWallet_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ForeignExchangeTransactions_Database" Collapsed="true">
+    <Position X="27.5" Y="8.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
-      <FileName>Stock_Database.cs</FileName>
+      <FileName>ForeignExchangeTransactions_Database.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.ForeignExchange_Database" Collapsed="true">
-    <Position X="8.75" Y="4.5" Width="1.5" />
+    <Position X="22.25" Y="6.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAACAAAAAACEAA=</HashCode>
+      <HashCode>AAQAAEAAACAAAAAAAAAgAAAAAgEAAAAACAAAAAACEAA=</HashCode>
       <FileName>ForeignExchange_Database.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.Base_Database" Collapsed="true">
-    <Position X="8.75" Y="3.25" Width="1.5" />
+    <Position X="25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAApAAAABAAAAAgQAAAAAAAAAAAASEAA=</HashCode>
       <FileName>Base_Database.cs</FileName>

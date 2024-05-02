@@ -1,56 +1,112 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Model.BaseEntity">
-    <Position X="7.75" Y="2.5" Width="1.5" />
+  <Class Name="Model.BaseEntity" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>BaseEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.ForeignExchange">
-    <Position X="10" Y="4.75" Width="1.5" />
+    <Position X="1.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAEIQAAAAEAAAAAACAAAAAgAAAAAAA=</HashCode>
       <FileName>ForeignExchange.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Model.ForeignExchangeList">
-    <Position X="10" Y="8" Width="1.5" />
+  <Class Name="Model.ForeignExchangeList" Collapsed="true">
+    <Position X="1.5" Y="7" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ForeignExchange.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Model.ForeignExchangeTransaction">
+    <Position X="12.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gCANAIAABAAAAAAAACAEAAAABAAAAAAAAAAAAAAACQA=</HashCode>
+      <FileName>ForeignExchangeTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.ForeignExchangeTransactionList" Collapsed="true">
+    <Position X="12.75" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ForeignExchangeTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.ForeignExchangeWallet">
+    <Position X="3.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAFAIAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ForeignExchangeWallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.ForeignExchangeWalletList" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ForeignExchangeWallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Model.Stock">
-    <Position X="5.5" Y="4.75" Width="1.5" />
+    <Position X="10.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAEAAAAAAAAAAAAACACAAAgAgAAQAA=</HashCode>
       <FileName>Stock.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Model.StockList">
-    <Position X="5.5" Y="8" Width="1.5" />
+  <Class Name="Model.StockList" Collapsed="true">
+    <Position X="10.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Stock.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Model.StockTransaction">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACABAAIAAAACAAAAACAECAAAhAgAAIAAAAAAAAAAAQA=</HashCode>
+      <FileName>StockTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.StockTransactionList" Collapsed="true">
+    <Position X="6.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StockTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.StockWallet">
+    <Position X="15.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAACAAAgAgAAIAAAAAAAAAAAQA=</HashCode>
+      <FileName>StockWallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.StockWalletList" Collapsed="true">
+    <Position X="15.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StockWallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Model.User">
-    <Position X="7.75" Y="4.75" Width="1.5" />
+    <Position X="8.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAACABAAAgBAAAQAQAAEAEAAACAQAAAgEAAAA=</HashCode>
       <FileName>User.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Model.UserList">
-    <Position X="7.75" Y="9" Width="1.5" />
+  <Class Name="Model.UserList" Collapsed="true">
+    <Position X="8.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Model.PermissionLevel">
-    <Position X="7.75" Y="10.5" Width="1.5" />
+    <Position X="8.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAgAAAAAAAAA=</HashCode>
       <FileName>User.cs</FileName>
