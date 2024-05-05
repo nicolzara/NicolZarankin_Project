@@ -22,7 +22,7 @@ namespace ViewModel
 
             foreignExchangeWallet.User = user_Database.SelectById(int.Parse(reader["UserId"].ToString()));
             foreignExchangeWallet.ForeignExchange = foreignExchange_Database.SelectById(int.Parse(reader["ForeignExchangeId"].ToString()));
-            foreignExchangeWallet.CurrencyAmount = int.Parse(reader["CurrencyAmount"].ToString());
+            foreignExchangeWallet.CurrencyAmount = double.Parse(reader["CurrencyAmount"].ToString());
 
             return foreignExchangeWallet;
         }

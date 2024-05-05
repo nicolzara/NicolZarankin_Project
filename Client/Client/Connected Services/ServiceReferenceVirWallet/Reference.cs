@@ -514,7 +514,7 @@ namespace Client.ServiceReferenceVirWallet {
     public partial class ForeignExchangeWallet : Client.ServiceReferenceVirWallet.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CurrencyAmountField;
+        private double CurrencyAmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServiceReferenceVirWallet.ForeignExchange ForeignExchangeField;
@@ -523,7 +523,7 @@ namespace Client.ServiceReferenceVirWallet {
         private Client.ServiceReferenceVirWallet.User UserField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CurrencyAmount {
+        public double CurrencyAmount {
             get {
                 return this.CurrencyAmountField;
             }

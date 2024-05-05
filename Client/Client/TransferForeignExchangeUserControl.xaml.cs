@@ -1,6 +1,7 @@
 ﻿using Client.ServiceReferenceVirWallet;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,14 +42,92 @@ namespace Client
             if (!CheckData())
                 return;
             ForeignExchange foreignExchange = CurrencyComboBox.SelectedItem as ForeignExchange;
+            foreignExchangeTransaction.User = user;
             foreignExchangeTransaction.ForeignExchange = foreignExchange;
             foreignExchangeTransaction.CurrencyValue = foreignExchange.Value;
-            foreignExchangeTransaction.CurrencyAmount = double.Parse(CurrencyAmountTextBox.Text);
+            foreignExchangeTransaction.CurrencyAmount = int.Parse(CurrencyAmountTextBox.Text);
             foreignExchangeTransaction.DateSignature = DateTime.Now;
-            //string buyOrSell = BuyOrSellComboBox.SelectedItem as string;
-            //MessageBox.Show(buyOrSell);
-            //foreignExchangeTransaction.BuyOrSell = buyOrSell == "Buy" ? true : false;
-            
+            string buyOrSell = BuyOrSellComboBox.Text;            
+            foreignExchangeTransaction.BuyOrSell = buyOrSell == "Buy" ? true : false;
+
+            ServiceClient service = new ServiceClient();
+            ForeignExchangeWalletList foreignExchangeWalletList = service.SelectForeignExchangeWalletsByUser(user);
+            ForeignExchangeWallet foreignExchangeWallet = null;
+            foreach (ForeignExchangeWallet wallet in foreignExchangeWalletList)
+            {
+                if(wallet.ForeignExchange == foreignExchange)
+                    foreignExchangeWallet = wallet;
+            }
+
+            if(foreignExchangeWallet == null)
+            {
+                if(foreignExchangeTransaction.BuyOrSell)
+                {
+                    if(user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
+                    {
+                        foreignExchangeWallet = new ForeignExchangeWallet();
+                        foreignExchangeWallet.ForeignExchange = foreignExchange;
+                        foreignExchangeWallet.User = user;
+                        foreignExchangeWallet.CurrencyAmount = double.Parse(CurrencyAmountTextBox.Text);
+                        service.InsertForeignExchangeWallet(foreignExchangeWallet);
+                        user.FreeBalance -= (double.Parse(TotalTextBox.Text));
+                        service.UpdateUser(user);
+                        service.InsertForeignExchangeTransaction(foreignExchangeTransaction);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry, you don't have enough money");
+                        return;
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("You can't sell if you don't have currency");
+                    return;
+                }
+            }
+            else
+            {
+                if(foreignExchangeTransaction.BuyOrSell)
+                {
+                    if(user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
+                    {
+                        foreignExchangeWallet.CurrencyAmount += foreignExchangeTransaction.CurrencyAmount;
+                        user.FreeBalance -= (double.Parse(TotalTextBox.Text));
+                        service.UpdateUser(user);
+                        service.UpdateForeignExchangeWallet(foreignExchangeWallet);
+                        service.InsertForeignExchangeTransaction(foreignExchangeTransaction);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry, you don't have enough money");
+                        return;
+                    }
+                    
+                }
+                else
+                {
+                    if(foreignExchangeWallet.CurrencyAmount > foreignExchangeTransaction.CurrencyAmount)
+                    {
+                        foreignExchangeWallet.CurrencyAmount -= foreignExchangeTransaction.CurrencyAmount;
+                        user.FreeBalance += (double.Parse(TotalTextBox.Text));
+                        service.UpdateUser(user);
+                        service.UpdateForeignExchangeWallet(foreignExchangeWallet);
+                        service.InsertForeignExchangeTransaction(foreignExchangeTransaction);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry, you don't have enough currency to sell");
+                        return;
+                    }
+                }
+            }
+
+            CurrencyComboBox.SelectedIndex = -1;
+            BuyOrSellComboBox.SelectedIndex = -1;
+            CurrencyAmountTextBox.Clear();
+            TotalTextBox.Clear();
         }
 
         private void ClearClick(object sender, RoutedEventArgs e)

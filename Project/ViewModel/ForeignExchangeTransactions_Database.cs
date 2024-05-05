@@ -23,7 +23,7 @@ namespace ViewModel
             foreignExchangeTransaction.Id = int.Parse(reader["TransactionId"].ToString());
             foreignExchangeTransaction.User = user_Database.SelectById(int.Parse(reader["UserId"].ToString()));
             foreignExchangeTransaction.ForeignExchange = foreignExchange_Database.SelectById(int.Parse(reader["ForeignExchangeId"].ToString()));
-            foreignExchangeTransaction.CurrencyAmount = int.Parse(reader["CurrencyAmount"].ToString());
+            foreignExchangeTransaction.CurrencyAmount = double.Parse(reader["CurrencyAmount"].ToString());
             foreignExchangeTransaction.CurrencyValue = double.Parse(reader["CurrencyValue"].ToString());
             foreignExchangeTransaction.BuyOrSell = bool.Parse(reader["BuyOrSell"].ToString());
             foreignExchangeTransaction.DateSignature = DateTime.Parse(reader["DateSignature"].ToString());

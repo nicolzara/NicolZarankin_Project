@@ -25,9 +25,9 @@ namespace Model
             set { foreignExchange = value; }
         }
 
-        protected int currencyAmount;
+        protected double currencyAmount;
         [DataMember]
-        public int CurrencyAmount
+        public double CurrencyAmount
         {
             get { return currencyAmount; }
             set { currencyAmount = value; }

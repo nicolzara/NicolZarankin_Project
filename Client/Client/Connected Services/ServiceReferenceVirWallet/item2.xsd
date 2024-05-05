@@ -116,7 +116,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
-          <xs:element minOccurs="0" name="CurrencyAmount" type="xs:int" />
+          <xs:element minOccurs="0" name="CurrencyAmount" type="xs:double" />
           <xs:element minOccurs="0" name="ForeignExchange" nillable="true" type="tns:ForeignExchange" />
           <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
         </xs:sequence>
