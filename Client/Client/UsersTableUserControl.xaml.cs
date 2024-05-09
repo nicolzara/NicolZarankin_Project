@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
+
 
 namespace Client
 {
@@ -26,6 +28,8 @@ namespace Client
         {
             InitializeComponent();
             GetUsers();
+           // UsersListView.MouseDoubleClick += UsersListView_MouseDoubleClick;
+
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -37,6 +41,7 @@ namespace Client
         {
             UserList users = new ServiceClient().SelectAllUsers();
             UsersListView.ItemsSource = users;
+            //UsersListView.MouseDoubleClick += UsersListView_MouseDoubleClick;
         }
 
         private void UserInfoChanged_TextChanged(object sender, TextChangedEventArgs e)
@@ -53,5 +58,21 @@ namespace Client
                 }
             }
         }
+
+        //private void UsersListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        //{
+        //    for (int itemIndex = 0; itemIndex < UsersListView.Items.Count; itemIndex++)
+        //    {
+        //        ListViewItem item = (ListViewItem)UsersListView.Items[itemIndex];
+        //        Rectangle itemRect = item.GetBounds(ItemBoundsPortion.Label);
+        //        if (itemRect.Contains(e.Location))
+        //        {
+        //            item.Checked = !item.Checked;
+        //            break;
+        //        }
+        //    }
+        //}
+
+
     }
 }

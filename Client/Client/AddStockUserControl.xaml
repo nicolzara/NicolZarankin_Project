@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Client.AddStockUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Client"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="LightGray"
+             Background="#00101d"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock HorizontalAlignment="Center" Foreground="LightGray" FontSize="20">Add Stock</TextBlock>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+            <materialDesign:PackIcon Kind="Bitcoin" Foreground="LightGray" Width="30" Height="30"/>
+            <TextBox x:Name="StockNameTextBox"
+                 Foreground="LightGray"
+                 materialDesign:HintAssist.Hint="Stock Name"
+                 materialDesign:HintAssist.HelperText="Enter new stock"
+                 Width="170"
+                 Height="25"
+                 VerticalAlignment="Top">
+            </TextBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
+            <materialDesign:PackIcon Kind="Bitcoin" Foreground="LightGray" Width="30" Height="30"/>
+            <TextBox x:Name="StockSymbolTextBox"
+         Foreground="LightGray"
+         materialDesign:HintAssist.Hint="Stock Symbol"
+         materialDesign:HintAssist.HelperText="Enter new stock"
+         Width="170"
+         Height="25"
+         VerticalAlignment="Top">
+            </TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+        HorizontalAlignment="Center" Grid.Row="3">
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}"
+         Width="75"
+         Foreground="LightGray"
+         ToolTip="Resource name: MaterialDesignRaisedButton"
+         Click="AddClick">Add</Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+        Width="75"
+        Foreground="LightGray"
+        ToolTip="Resource name: MaterialDesignRaisedButton"
+        Click="ClearClick">Clear</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

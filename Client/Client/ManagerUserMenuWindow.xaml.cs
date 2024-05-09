@@ -20,8 +20,10 @@ namespace Client
     /// </summary>
     public partial class ManagerUserMenuWindow : Window
     {
+        private User user;
         public ManagerUserMenuWindow(User user)
         {
+            this.user = user;
             InitializeComponent();
         }
 
@@ -48,5 +50,63 @@ namespace Client
             grView.Children.Add(new ForeignExchangeListUserControl());
         }
 
+        private void AddForeignExchange_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new AddForeignExchangeUserControl());
+        }
+
+        private void AddStock_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new AddStockUserControl());
+        }
+
+        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new AboutUsUserControl());
+        }
+
+        private void ForeignExchangeTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new ForeignExchangeTransactionsUserControl());
+        }
+
+        private void StockTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new StockTransactionsUserControl());
+        }
+
+        private void ForeignExchangeWallet_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new ForeignExchangeWalletUserControl(user, false,this));
+        }
+
+        private void AllForeignExchangeWallet_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new ForeignExchangeWalletUserControl(user, true, this));
+        }
+
+        private void StockWallet_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new StockWalletUserControl(user, false));
+        }
+
+        private void AllStockWallet_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new StockWalletUserControl(user, true));
+        }
+        public void OpenTransferForeignExchange()
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new TransferForeignExchangeUserControl(user));
+        }
     }
 }

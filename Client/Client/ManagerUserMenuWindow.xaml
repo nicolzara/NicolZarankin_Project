@@ -27,13 +27,23 @@
             </Button.Background>
         </Button>
         <Menu IsMainMenu="True" Grid.Column="1">
-            <MenuItem Header="_Wallet">
-                <MenuItem Header="Foreign Exchange">
+            <MenuItem Header="_Wallet" >
+                <MenuItem Header="Foreign Exchange" Click="ForeignExchangeWallet_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="CurrencyUsd" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Stock">
+                <MenuItem Header="All Foreign Exchange Wallets" Click="AllForeignExchangeWallet_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="CurrencyUsd" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Stock" Click="StockWallet_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Bitcoin" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="All Stock Wallets" Click="AllStockWallet_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Bitcoin" />
                     </MenuItem.Icon>
@@ -50,7 +60,7 @@
                         <materialDesign:PackIcon Kind="Bitcoin" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_About us">
+                <MenuItem Header="_About us" Click="AboutUs_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="InformationOutline" />
                     </MenuItem.Icon>
@@ -58,12 +68,38 @@
             </MenuItem>
             <MenuItem Header="_Users">
                 <MenuItem Header="See all users" Click="Users_Click">
-                        <MenuItem.Icon>
+                    <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="AccountGroupOutline" />
                     </MenuItem.Icon>
-                    </MenuItem>
                 </MenuItem>
-            </Menu>
+            </MenuItem>
+            
+            <MenuItem Header="_Add">
+            <MenuItem Header="Add foreign exchange" Click="AddForeignExchange_Click">
+                <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="CurrencyUsd" />
+                </MenuItem.Icon>
+            </MenuItem>
+                <MenuItem Header="Add stock" Click="AddStock_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Bitcoin" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="_Transactions">
+                <MenuItem Header="Foreign exchange" Click="ForeignExchangeTransactions_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="CurrencyUsd" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Stock" Click="StockTransactions_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Bitcoin" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="grView"/>
     </Grid>
 </Window>

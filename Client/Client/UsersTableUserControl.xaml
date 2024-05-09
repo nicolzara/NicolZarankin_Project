@@ -15,14 +15,20 @@
         <ListView x:Name="UsersListView" Grid.Row="1" Grid.Column="1" FontSize="9">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding UserName}" Header="UserName" />
+                    <GridViewColumn Header="UserName" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="UserInfoChanged_TextChanged" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Email}" Header="Email" />
                     <GridViewColumn DisplayMemberBinding="{Binding Birthdate}" Header="Birthdate" />
                     <GridViewColumn DisplayMemberBinding="{Binding PhoneNumber}" Header="PhoneNumber" />
                     <GridViewColumn Header="PermissionLevel">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding PermissionLevel}" TextChanged="UserInfoChanged_TextChanged" />
+                                <TextBox Text="{Binding PermissionLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="UserInfoChanged_TextChanged" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -30,11 +36,10 @@
                     <GridViewColumn Header="FreeBalance">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding FreeBalance}" TextChanged="UserInfoChanged_TextChanged"/>
+                                <TextBox Text="{Binding FreeBalance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="UserInfoChanged_TextChanged" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-
                 </GridView>
             </ListView.View>
         </ListView>

@@ -64,4 +64,82 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Stock" nillable="true" type="tns:Stock" />
+  <xs:complexType name="ForeignExchangeTransactionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ForeignExchangeTransaction" nillable="true" type="tns:ForeignExchangeTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ForeignExchangeTransactionList" nillable="true" type="tns:ForeignExchangeTransactionList" />
+  <xs:complexType name="ForeignExchangeTransaction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BuyOrSell" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CurrencyAmount" type="xs:double" />
+          <xs:element minOccurs="0" name="CurrencyValue" type="xs:double" />
+          <xs:element minOccurs="0" name="DateSignature" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ForeignExchange" nillable="true" type="tns:ForeignExchange" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ForeignExchangeTransaction" nillable="true" type="tns:ForeignExchangeTransaction" />
+  <xs:complexType name="StockTransactionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockTransaction" nillable="true" type="tns:StockTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockTransactionList" nillable="true" type="tns:StockTransactionList" />
+  <xs:complexType name="StockTransaction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BuyOrSell" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DateSignature" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Stock" nillable="true" type="tns:Stock" />
+          <xs:element minOccurs="0" name="StockAmount" type="xs:int" />
+          <xs:element minOccurs="0" name="StockValue" type="xs:double" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StockTransaction" nillable="true" type="tns:StockTransaction" />
+  <xs:complexType name="ForeignExchangeWalletList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ForeignExchangeWallet" nillable="true" type="tns:ForeignExchangeWallet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ForeignExchangeWalletList" nillable="true" type="tns:ForeignExchangeWalletList" />
+  <xs:complexType name="ForeignExchangeWallet">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrencyAmount" type="xs:double" />
+          <xs:element minOccurs="0" name="ForeignExchange" nillable="true" type="tns:ForeignExchange" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ForeignExchangeWallet" nillable="true" type="tns:ForeignExchangeWallet" />
+  <xs:complexType name="StockWalletList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockWallet" nillable="true" type="tns:StockWallet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockWalletList" nillable="true" type="tns:StockWalletList" />
+  <xs:complexType name="StockWallet">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Stock" nillable="true" type="tns:Stock" />
+          <xs:element minOccurs="0" name="StockAmount" type="xs:int" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StockWallet" nillable="true" type="tns:StockWallet" />
 </xs:schema>

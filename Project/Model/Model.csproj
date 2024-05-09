@@ -44,8 +44,12 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="ForeignExchange.cs" />
+    <Compile Include="ForeignExchangeWallet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock.cs" />
+    <Compile Include="ForeignExchangeTransaction.cs" />
+    <Compile Include="StockTransaction.cs" />
+    <Compile Include="StockWallet.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Client.AboutUsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Client"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="LightGray"
+             Background="#00101d"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="ChuckNorrisJokeTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="DadJokeTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="KanyeQuoteTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="RandomJokesTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="InsultTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="QuoteTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="WhatDoesTrumpThinkTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="CatFactTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <TextBlock x:Name="ActivityTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
