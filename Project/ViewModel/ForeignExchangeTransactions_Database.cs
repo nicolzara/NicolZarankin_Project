@@ -60,8 +60,8 @@ namespace ViewModel
             command.Parameters.AddWithValue("@ForeignExchangeId", foreignExchangeTransaction.ForeignExchange.Id);
             command.Parameters.AddWithValue("@CurrencyAmount", foreignExchangeTransaction.CurrencyAmount);
             command.Parameters.AddWithValue("@CurrencyValue", foreignExchangeTransaction.CurrencyValue);
-            command.Parameters.AddWithValue("@BuyOrSell", foreignExchangeTransaction.BuyOrSell);
-            command.Parameters.AddWithValue("@DateSignature", foreignExchangeTransaction.DateSignature);
+            command.Parameters.AddWithValue("@BuyOrSell", foreignExchangeTransaction.BuyOrSell?1:0);
+            command.Parameters.AddWithValue("@DateSignature", foreignExchangeTransaction.DateSignature.ToString("dd/MM/yyyy HH:mm"));
             command.Parameters.AddWithValue("@TransactionId", foreignExchangeTransaction.Id);
         }
 

@@ -150,6 +150,9 @@
     <Compile Include="TeenUserMenuWindow.xaml.cs">
       <DependentUpon>TeenUserMenuWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TranferStockUserControl.xaml.cs">
+      <DependentUpon>TranferStockUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TransferForeignExchangeUserControl.xaml.cs">
       <DependentUpon>TransferForeignExchangeUserControl.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TeenUserMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TranferStockUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

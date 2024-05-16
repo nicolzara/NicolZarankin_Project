@@ -1,7 +1,6 @@
 ﻿using Client.ServiceReferenceVirWallet;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +17,12 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for TransferForeignExchangeUserControl.xaml
+    /// Interaction logic for TranferStockUserControl.xaml
     /// </summary>
-    public partial class TransferForeignExchangeUserControl : UserControl
+    public partial class TranferStockUserControl : UserControl
     {
         private User user;
-        public TransferForeignExchangeUserControl(User user)
+        public TranferStockUserControl(User user)
         {
             this.user = user;
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace Client
         private void LoadCurrencies()
         {
             ForeignExchangeList list = new ServiceClient().SelectAllForeignExchanges();
-            CurrencyComboBox.ItemsSource = list;
+            StockComboBox.ItemsSource = list;
         }
 
         private void TransferClick(object sender, RoutedEventArgs e)
@@ -41,13 +40,13 @@ namespace Client
             ForeignExchangeTransaction foreignExchangeTransaction = new ForeignExchangeTransaction();
             if (!CheckData())
                 return;
-            ForeignExchange foreignExchange = CurrencyComboBox.SelectedItem as ForeignExchange;
+            ForeignExchange foreignExchange = StockComboBox.SelectedItem as ForeignExchange;
             foreignExchangeTransaction.User = user;
             foreignExchangeTransaction.ForeignExchange = foreignExchange;
             foreignExchangeTransaction.CurrencyValue = foreignExchange.Value;
-            foreignExchangeTransaction.CurrencyAmount = double.Parse(CurrencyAmountTextBox.Text);
+            foreignExchangeTransaction.CurrencyAmount = double.Parse(StockAmountTextBox.Text);
             foreignExchangeTransaction.DateSignature = DateTime.Now;
-            string buyOrSell = BuyOrSellComboBox.Text;            
+            string buyOrSell = BuyOrSellComboBox.Text;
             foreignExchangeTransaction.BuyOrSell = buyOrSell == "Buy" ? true : false;
 
             ServiceClient service = new ServiceClient();
@@ -55,20 +54,20 @@ namespace Client
             ForeignExchangeWallet foreignExchangeWallet = null;
             foreach (ForeignExchangeWallet wallet in foreignExchangeWalletList)
             {
-                if(wallet.ForeignExchange.Id == foreignExchange.Id)
+                if (wallet.ForeignExchange.Id == foreignExchange.Id)
                     foreignExchangeWallet = wallet;
             }
 
-            if(foreignExchangeWallet == null)
+            if (foreignExchangeWallet == null)
             {
-                if(foreignExchangeTransaction.BuyOrSell)
+                if (foreignExchangeTransaction.BuyOrSell)
                 {
-                    if(user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
+                    if (user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
                     {
                         foreignExchangeWallet = new ForeignExchangeWallet();
                         foreignExchangeWallet.ForeignExchange = foreignExchange;
                         foreignExchangeWallet.User = user;
-                        foreignExchangeWallet.CurrencyAmount = double.Parse(CurrencyAmountTextBox.Text);
+                        foreignExchangeWallet.CurrencyAmount = double.Parse(StockAmountTextBox.Text);
                         service.InsertForeignExchangeWallet(foreignExchangeWallet);
                         user.FreeBalance -= (double.Parse(TotalTextBox.Text));
                         service.UpdateUser(user);
@@ -79,7 +78,7 @@ namespace Client
                         MessageBox.Show("Sorry, you don't have enough money");
                         return;
                     }
-                    
+
                 }
                 else
                 {
@@ -89,9 +88,9 @@ namespace Client
             }
             else
             {
-                if(foreignExchangeTransaction.BuyOrSell)
+                if (foreignExchangeTransaction.BuyOrSell)
                 {
-                    if(user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
+                    if (user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
                     {
                         foreignExchangeWallet.CurrencyAmount += foreignExchangeTransaction.CurrencyAmount;
                         user.FreeBalance -= (double.Parse(TotalTextBox.Text));
@@ -104,11 +103,11 @@ namespace Client
                         MessageBox.Show("Sorry, you don't have enough money");
                         return;
                     }
-                    
+
                 }
                 else
                 {
-                    if(foreignExchangeWallet.CurrencyAmount > foreignExchangeTransaction.CurrencyAmount)
+                    if (foreignExchangeWallet.CurrencyAmount > foreignExchangeTransaction.CurrencyAmount)
                     {
                         foreignExchangeWallet.CurrencyAmount -= foreignExchangeTransaction.CurrencyAmount;
                         user.FreeBalance += (double.Parse(TotalTextBox.Text));
@@ -124,25 +123,25 @@ namespace Client
                 }
             }
 
-            CurrencyComboBox.SelectedIndex = -1;
+            StockComboBox.SelectedIndex = -1;
             BuyOrSellComboBox.SelectedIndex = -1;
-            CurrencyAmountTextBox.Clear();
+            StockAmountTextBox.Clear();
             TotalTextBox.Clear();
         }
 
         private void ClearClick(object sender, RoutedEventArgs e)
         {
-            CurrencyComboBox.SelectedIndex = -1;
+            StockComboBox.SelectedIndex = -1;
             BuyOrSellComboBox.SelectedIndex = -1;
-            CurrencyAmountTextBox.Clear();
+            StockAmountTextBox.Clear();
             TotalTextBox.Clear();
         }
 
-        private void CurrencyAmountTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void StockAmountTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-           ForeignExchange foreignExchange = CurrencyComboBox.SelectedItem as ForeignExchange;
+            ForeignExchange foreignExchange = StockComboBox.SelectedItem as ForeignExchange;
             if (foreignExchange == null) return;
-            if(CurrencyAmountTextBox.Text.Length == 0)
+            if (StockAmountTextBox.Text.Length == 0)
             {
                 TotalTextBox.Text = string.Empty;
                 return;
@@ -151,7 +150,7 @@ namespace Client
             try
             {
                 if (!TotalTextBox.IsFocused)
-                    TotalTextBox.Text = (double.Parse(CurrencyAmountTextBox.Text) / foreignExchange.Value).ToString();
+                    TotalTextBox.Text = (double.Parse(StockAmountTextBox.Text) / foreignExchange.Value).ToString();
             }
             catch
             {
@@ -161,18 +160,18 @@ namespace Client
 
         private void TotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ForeignExchange foreignExchange = CurrencyComboBox.SelectedItem as ForeignExchange;
+            ForeignExchange foreignExchange = StockComboBox.SelectedItem as ForeignExchange;
             if (foreignExchange == null) return;
             if (TotalTextBox.Text.Length == 0)
             {
-                CurrencyAmountTextBox.Text = string.Empty;
+                StockAmountTextBox.Text = string.Empty;
                 return;
             }
 
             try
             {
-                if (!CurrencyAmountTextBox.IsFocused)
-                    CurrencyAmountTextBox.Text = (foreignExchange.Value * double.Parse(TotalTextBox.Text)).ToString();
+                if (!StockAmountTextBox.IsFocused)
+                    StockAmountTextBox.Text = (foreignExchange.Value * double.Parse(TotalTextBox.Text)).ToString();
             }
             catch
             {
@@ -182,13 +181,13 @@ namespace Client
 
         private bool CheckData()
         {
-            if(!(CurrencyComboBox.SelectedIndex == -1 || BuyOrSellComboBox.SelectedIndex == -1))
+            if (!(StockComboBox.SelectedIndex == -1 || BuyOrSellComboBox.SelectedIndex == -1))
             {
-                if (CurrencyAmountTextBox.Text != string.Empty && TotalTextBox.Text != string.Empty)
+                if (StockAmountTextBox.Text != string.Empty && TotalTextBox.Text != string.Empty)
                 {
                     try
                     {
-                        if (double.Parse(TotalTextBox.Text) > 0 && double.Parse(CurrencyAmountTextBox.Text) > 0)
+                        if (double.Parse(TotalTextBox.Text) > 0 && double.Parse(StockAmountTextBox.Text) > 0)
                         {
                             return true;
                         }
