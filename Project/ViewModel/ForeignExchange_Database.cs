@@ -69,6 +69,7 @@ namespace ViewModel
                 foreignExchange.CurrencyName = currency.CurrencyName;
                 foreignExchange.CurrencyCode = (foreignExchangeInfo["code"]).ToString();
                 foreignExchange.Value = Double.Parse((foreignExchangeInfo["value"]).ToString());
+                foreignExchange.Id = currency.Id;
 
                 foreignExchangeList.Add(foreignExchange);
             }
