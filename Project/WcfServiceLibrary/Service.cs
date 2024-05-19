@@ -108,6 +108,12 @@ namespace WcfServiceLibrary
             return foreignExchangeTransactions_Database.SelectAll();
         }
 
+        public ForeignExchangeTransactionList SelectForeignExchangeTransactionsByUser(User user)
+        {
+            ForeignExchangeTransactions_Database foreignExchangeTransactions_Database = new ForeignExchangeTransactions_Database();
+            return foreignExchangeTransactions_Database.SelectByUser(user);
+        }
+
         public int InsertForeignExchangeTransaction(ForeignExchangeTransaction foreignExchangeTransaction)
         {
             ForeignExchangeTransactions_Database foreignExchangeTransactions_Database = new ForeignExchangeTransactions_Database();
@@ -132,6 +138,12 @@ namespace WcfServiceLibrary
         {
             StockTransactions_Database stockTransactions_Database = new StockTransactions_Database();
             return stockTransactions_Database.SelectAll();
+        }
+
+        public StockTransactionList SelectStockTransactionsByUser(User user)
+        {
+            StockTransactions_Database stockTransactions_Database = new StockTransactions_Database();
+            return stockTransactions_Database.SelectByUser(user);
         }
 
         public int InsertStockTransaction(StockTransaction StockTransaction)

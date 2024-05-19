@@ -26,52 +26,52 @@ namespace Client
         {
             this.user = user;
             InitializeComponent();
-            LoadCurrencies();
+            LoadStocks();
         }
 
-        private void LoadCurrencies()
+        private void LoadStocks()
         {
-            ForeignExchangeList list = new ServiceClient().SelectAllForeignExchanges();
+            StockList list = new ServiceClient().SelectAllStocks();
             StockComboBox.ItemsSource = list;
         }
 
         private void TransferClick(object sender, RoutedEventArgs e)
         {
-            ForeignExchangeTransaction foreignExchangeTransaction = new ForeignExchangeTransaction();
+            StockTransaction StockTransaction = new StockTransaction();
             if (!CheckData())
                 return;
-            ForeignExchange foreignExchange = StockComboBox.SelectedItem as ForeignExchange;
-            foreignExchangeTransaction.User = user;
-            foreignExchangeTransaction.ForeignExchange = foreignExchange;
-            foreignExchangeTransaction.CurrencyValue = foreignExchange.Value;
-            foreignExchangeTransaction.CurrencyAmount = double.Parse(StockAmountTextBox.Text);
-            foreignExchangeTransaction.DateSignature = DateTime.Now;
+            Stock Stock = StockComboBox.SelectedItem as Stock;
+            StockTransaction.User = user;
+            StockTransaction.Stock = Stock;
+            StockTransaction.StockValue = Stock.Value;
+            StockTransaction.StockAmount = int.Parse(StockAmountTextBox.Text);
+            StockTransaction.DateSignature = DateTime.Now;
             string buyOrSell = BuyOrSellComboBox.Text;
-            foreignExchangeTransaction.BuyOrSell = buyOrSell == "Buy" ? true : false;
+            StockTransaction.BuyOrSell = buyOrSell == "Buy" ? true : false;
 
             ServiceClient service = new ServiceClient();
-            ForeignExchangeWalletList foreignExchangeWalletList = service.SelectForeignExchangeWalletsByUser(user);
-            ForeignExchangeWallet foreignExchangeWallet = null;
-            foreach (ForeignExchangeWallet wallet in foreignExchangeWalletList)
+            StockWalletList StockWalletList = service.SelectStockWalletsByUser(user);
+            StockWallet StockWallet = null;
+            foreach (StockWallet wallet in StockWalletList)
             {
-                if (wallet.ForeignExchange.Id == foreignExchange.Id)
-                    foreignExchangeWallet = wallet;
+                if (wallet.Stock.Id == Stock.Id)
+                    StockWallet = wallet;
             }
 
-            if (foreignExchangeWallet == null)
+            if (StockWallet == null)
             {
-                if (foreignExchangeTransaction.BuyOrSell)
+                if (StockTransaction.BuyOrSell)
                 {
                     if (user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
                     {
-                        foreignExchangeWallet = new ForeignExchangeWallet();
-                        foreignExchangeWallet.ForeignExchange = foreignExchange;
-                        foreignExchangeWallet.User = user;
-                        foreignExchangeWallet.CurrencyAmount = double.Parse(StockAmountTextBox.Text);
-                        service.InsertForeignExchangeWallet(foreignExchangeWallet);
+                        StockWallet = new StockWallet();
+                        StockWallet.Stock = Stock;
+                        StockWallet.User = user;
+                        StockWallet.StockAmount = int.Parse(StockAmountTextBox.Text);
+                        service.InsertStockWallet(StockWallet);
                         user.FreeBalance -= (double.Parse(TotalTextBox.Text));
                         service.UpdateUser(user);
-                        service.InsertForeignExchangeTransaction(foreignExchangeTransaction);
+                        service.InsertStockTransaction(StockTransaction);
                     }
                     else
                     {
@@ -88,15 +88,15 @@ namespace Client
             }
             else
             {
-                if (foreignExchangeTransaction.BuyOrSell)
+                if (StockTransaction.BuyOrSell)
                 {
                     if (user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
                     {
-                        foreignExchangeWallet.CurrencyAmount += foreignExchangeTransaction.CurrencyAmount;
+                        StockWallet.StockAmount += StockTransaction.StockAmount;
                         user.FreeBalance -= (double.Parse(TotalTextBox.Text));
                         service.UpdateUser(user);
-                        service.UpdateForeignExchangeWallet(foreignExchangeWallet);
-                        service.InsertForeignExchangeTransaction(foreignExchangeTransaction);
+                        service.UpdateStockWallet(StockWallet);
+                        service.InsertStockTransaction(StockTransaction);
                     }
                     else
                     {
@@ -107,13 +107,13 @@ namespace Client
                 }
                 else
                 {
-                    if (foreignExchangeWallet.CurrencyAmount > foreignExchangeTransaction.CurrencyAmount)
+                    if (StockWallet.StockAmount > StockTransaction.StockAmount)
                     {
-                        foreignExchangeWallet.CurrencyAmount -= foreignExchangeTransaction.CurrencyAmount;
+                        StockWallet.StockAmount -= StockTransaction.StockAmount;
                         user.FreeBalance += (double.Parse(TotalTextBox.Text));
                         service.UpdateUser(user);
-                        service.UpdateForeignExchangeWallet(foreignExchangeWallet);
-                        service.InsertForeignExchangeTransaction(foreignExchangeTransaction);
+                        service.UpdateStockWallet(StockWallet);
+                        service.InsertStockTransaction(StockTransaction);
                     }
                     else
                     {
@@ -139,8 +139,8 @@ namespace Client
 
         private void StockAmountTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ForeignExchange foreignExchange = StockComboBox.SelectedItem as ForeignExchange;
-            if (foreignExchange == null) return;
+            Stock Stock = StockComboBox.SelectedItem as Stock;
+            if (Stock == null) return;
             if (StockAmountTextBox.Text.Length == 0)
             {
                 TotalTextBox.Text = string.Empty;
@@ -150,28 +150,7 @@ namespace Client
             try
             {
                 if (!TotalTextBox.IsFocused)
-                    TotalTextBox.Text = (double.Parse(StockAmountTextBox.Text) / foreignExchange.Value).ToString();
-            }
-            catch
-            {
-                MessageBox.Show("Bad Input");
-            }
-        }
-
-        private void TotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ForeignExchange foreignExchange = StockComboBox.SelectedItem as ForeignExchange;
-            if (foreignExchange == null) return;
-            if (TotalTextBox.Text.Length == 0)
-            {
-                StockAmountTextBox.Text = string.Empty;
-                return;
-            }
-
-            try
-            {
-                if (!StockAmountTextBox.IsFocused)
-                    StockAmountTextBox.Text = (foreignExchange.Value * double.Parse(TotalTextBox.Text)).ToString();
+                    TotalTextBox.Text = (int.Parse(StockAmountTextBox.Text) / Stock.Value).ToString();
             }
             catch
             {

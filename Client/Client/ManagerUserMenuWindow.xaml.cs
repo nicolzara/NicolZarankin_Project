@@ -71,13 +71,25 @@ namespace Client
         private void ForeignExchangeTransactions_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();
-            grView.Children.Add(new ForeignExchangeTransactionsUserControl());
+            grView.Children.Add(new ForeignExchangeTransactionsUserControl(user, false));
         }
 
         private void StockTransactions_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();
-            grView.Children.Add(new StockTransactionsUserControl());
+            grView.Children.Add(new StockTransactionsUserControl(user, false));
+        }
+
+        private void AllForeignExchangeTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new ForeignExchangeTransactionsUserControl(user, true));
+        }
+
+        private void AllStockTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new StockTransactionsUserControl(user, true));
         }
 
         private void ForeignExchangeWallet_Click(object sender, RoutedEventArgs e)
@@ -95,18 +107,24 @@ namespace Client
         private void StockWallet_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();
-            grView.Children.Add(new StockWalletUserControl(user, false));
+            grView.Children.Add(new StockWalletUserControl(user, false, this));
         }
 
         private void AllStockWallet_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();
-            grView.Children.Add(new StockWalletUserControl(user, true));
+            grView.Children.Add(new StockWalletUserControl(user, true, this));
         }
         public void OpenTransferForeignExchange()
         {
             grView.Children.Clear();
             grView.Children.Add(new TransferForeignExchangeUserControl(user));
+        }
+
+        public void OpenTransferStock()
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new TranferStockUserControl(user));
         }
     }
 }

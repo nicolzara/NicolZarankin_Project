@@ -24,7 +24,7 @@
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
             <ComboBox materialDesign:HintAssist.Hint="Stock" x:Name="StockComboBox" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,10,0,0"
-                      ItemsSource="{Binding Path=Stock}" SelectedItem="{Binding Path=StockCode}" DisplayMemberPath="StockCode" SelectedValuePath="StockCode"/>
+                      ItemsSource="{Binding Path=Stock}" SelectedItem="{Binding Path=StockSymbol}" DisplayMemberPath="StockSymbol" SelectedValuePath="StockSymbol"/>
             <ComboBox materialDesign:HintAssist.Hint="Buy or Sell?" x:Name="BuyOrSellComboBox" Width="200" Height="30" HorizontalAlignment="Center" Margin="10,10,0,0">
                 <ComboBoxItem>
                     Buy
@@ -48,7 +48,7 @@
                 materialDesign:HintAssist.HelperText="Total amount in USD"
                 Width="200"
                 Height="30"
-                HorizontalAlignment="Center" Margin="10,10,0,0" TextChanged="TotalTextBox_TextChanged"/>
+                HorizontalAlignment="Center" Margin="10,10,0,0" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2">

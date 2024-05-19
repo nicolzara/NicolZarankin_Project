@@ -22,13 +22,26 @@ namespace Client
     public partial class ForeignExchangeTransactionsUserControl : UserControl
     {
         private ServiceClient service = new ServiceClient();
-        public ForeignExchangeTransactionsUserControl()
+        public ForeignExchangeTransactionsUserControl(User user, bool all)
         {
             InitializeComponent();
-            GetTransactions();
+            if(all)
+            {
+                GetAllTransactions();
+            }
+            else
+            {
+                GetTransactions(user);
+            }
+            
         }
 
-        private void GetTransactions()
+        private void GetAllTransactions()
+        {
+            ForeignExchangeTransactionList list = new ServiceClient().SelectAllForeignExchangeTransactions();
+            CurrencyTransactionsListView.ItemsSource = list;
+        }
+        private void GetTransactions(User user)
         {
             ForeignExchangeTransactionList list = new ServiceClient().SelectAllForeignExchangeTransactions();
             CurrencyTransactionsListView.ItemsSource = list;

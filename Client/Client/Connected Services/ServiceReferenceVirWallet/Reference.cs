@@ -777,6 +777,12 @@ namespace Client.ServiceReferenceVirWallet {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectAllStockTransactions", ReplyAction="http://tempuri.org/IService/SelectAllStockTransactionsResponse")]
         System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockTransactionList> SelectAllStockTransactionsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectStockTransactionsByUser", ReplyAction="http://tempuri.org/IService/SelectStockTransactionsByUserResponse")]
+        Client.ServiceReferenceVirWallet.StockTransactionList SelectStockTransactionsByUser(Client.ServiceReferenceVirWallet.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectStockTransactionsByUser", ReplyAction="http://tempuri.org/IService/SelectStockTransactionsByUserResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockTransactionList> SelectStockTransactionsByUserAsync(Client.ServiceReferenceVirWallet.User user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertStockTransaction", ReplyAction="http://tempuri.org/IService/InsertStockTransactionResponse")]
         int InsertStockTransaction(Client.ServiceReferenceVirWallet.StockTransaction StockTransaction);
         
@@ -1033,6 +1039,14 @@ namespace Client.ServiceReferenceVirWallet {
         
         public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockTransactionList> SelectAllStockTransactionsAsync() {
             return base.Channel.SelectAllStockTransactionsAsync();
+        }
+        
+        public Client.ServiceReferenceVirWallet.StockTransactionList SelectStockTransactionsByUser(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectStockTransactionsByUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.StockTransactionList> SelectStockTransactionsByUserAsync(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectStockTransactionsByUserAsync(user);
         }
         
         public int InsertStockTransaction(Client.ServiceReferenceVirWallet.StockTransaction StockTransaction) {

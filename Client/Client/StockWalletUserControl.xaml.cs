@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Client
 {
@@ -22,8 +23,10 @@ namespace Client
     public partial class StockWalletUserControl : UserControl
     {
         private User user;
-        public StockWalletUserControl(User user, bool all)
+        private ManagerUserMenuWindow parent;
+        public StockWalletUserControl(User user, bool all, ManagerUserMenuWindow managerUserMenuWindow)
         {
+            this.parent = managerUserMenuWindow;
             this.user = user;
             InitializeComponent();
             if(all)
@@ -46,6 +49,21 @@ namespace Client
         {
             StockWalletList list = new ServiceClient().SelectAllStockWallets();
             StockWalletListView.ItemsSource = list;
+        }
+
+        private void PopupBox_Opened(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PopupBox_Closed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            parent.OpenTransferStock();
         }
     }
 }

@@ -92,13 +92,23 @@
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="CurrencyUsd" />
                     </MenuItem.Icon>
-                </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="All Foreign exchange Transactions" Click="AllForeignExchangeTransactions_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="CurrencyUsd" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 <MenuItem Header="Stock" Click="StockTransactions_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Bitcoin" />
                     </MenuItem.Icon>
                 </MenuItem>
-            </MenuItem>
+                    <MenuItem Header="All Stock Transactions" Click="AllStockTransactions_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Bitcoin" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
         </Menu>
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="grView"/>
     </Grid>

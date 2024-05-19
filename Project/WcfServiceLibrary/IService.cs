@@ -28,12 +28,14 @@ namespace WcfServiceLibrary
 
         //Foreign Exchange Transactions
         [OperationContract] ForeignExchangeTransactionList SelectAllForeignExchangeTransactions();
+        [OperationContract] ForeignExchangeTransactionList SelectForeignExchangeTransactionsByUser(User user);
         [OperationContract] int InsertForeignExchangeTransaction(ForeignExchangeTransaction foreignExchangeTransaction);
         [OperationContract] int UpdateForeignExchangeTransaction(ForeignExchangeTransaction foreignExchangeTransaction);
         [OperationContract] int DeleteForeignExchangeTransaction(ForeignExchangeTransaction foreignExchangeTransaction);
 
         //Stock Transactions
         [OperationContract] StockTransactionList SelectAllStockTransactions();
+        [OperationContract] StockTransactionList SelectStockTransactionsByUser(User user);
         [OperationContract] int InsertStockTransaction(StockTransaction StockTransaction);
         [OperationContract] int UpdateStockTransaction(StockTransaction StockTransaction);
         [OperationContract] int DeleteStockTransaction(StockTransaction StockTransaction);

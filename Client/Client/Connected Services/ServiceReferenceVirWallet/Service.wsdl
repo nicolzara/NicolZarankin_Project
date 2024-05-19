@@ -121,6 +121,12 @@
   <wsdl:message name="IService_SelectAllStockTransactions_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllStockTransactionsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_SelectStockTransactionsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectStockTransactionsByUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectStockTransactionsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectStockTransactionsByUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_InsertStockTransaction_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertStockTransaction" />
   </wsdl:message>
@@ -275,6 +281,10 @@
     <wsdl:operation name="SelectAllStockTransactions">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectAllStockTransactions" message="tns:IService_SelectAllStockTransactions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectAllStockTransactionsResponse" message="tns:IService_SelectAllStockTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectStockTransactionsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectStockTransactionsByUser" message="tns:IService_SelectStockTransactionsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectStockTransactionsByUserResponse" message="tns:IService_SelectStockTransactionsByUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertStockTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertStockTransaction" message="tns:IService_InsertStockTransaction_InputMessage" />
@@ -495,6 +505,15 @@
     </wsdl:operation>
     <wsdl:operation name="SelectAllStockTransactions">
       <soap:operation soapAction="http://tempuri.org/IService/SelectAllStockTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectStockTransactionsByUser">
+      <soap:operation soapAction="http://tempuri.org/IService/SelectStockTransactionsByUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

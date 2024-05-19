@@ -22,15 +22,29 @@ namespace Client
     public partial class StockTransactionsUserControl : UserControl
     {
         private ServiceClient service = new ServiceClient();
-        public StockTransactionsUserControl()
+        public StockTransactionsUserControl(User user, bool all)
         {
             InitializeComponent();
-            GetTransactions();
+            if(all)
+            {
+                GetAllTransactions();
+            }
+            else
+            {
+                GetTransactions(user);
+            }
+            
         }
-        private void GetTransactions()
+        private void GetAllTransactions()
         {
             StockTransactionList list = new ServiceClient().SelectAllStockTransactions();
-            CurrencyTransactionsListView.ItemsSource = list;
+            StockTransactionsListView.ItemsSource = list;
+        }
+
+        private void GetTransactions(User user)
+        {
+            StockTransactionList list = new ServiceClient().SelectStockTransactionsByUser(user);
+            StockTransactionsListView.ItemsSource = list;
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {

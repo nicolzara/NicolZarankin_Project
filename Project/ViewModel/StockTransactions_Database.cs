@@ -52,6 +52,19 @@ namespace ViewModel
             return stockTransactionList[0];
         }
 
+        public StockTransactionList SelectByUser(User user)
+        {
+            command.CommandText = "SELECT * FROM StockTransactions_Table WHERE UserId=" + user.Id;
+            StockTransactionList stockTransactionList = new StockTransactionList(ExecuteCommand());
+
+            if (stockTransactionList.Count == 0)
+            {
+                return null;
+            }
+
+            return stockTransactionList;
+        }
+
         protected override void LoadParameters(BaseEntity entity)
         {
             StockTransaction stockTransaction = entity as StockTransaction;

@@ -16,7 +16,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <ListView x:Name="CurrencyTransactionsListView" Grid.Row="1" Grid.Column="1" FontSize="9">
+        <ListView x:Name="StockTransactionsListView" Grid.Row="1" Grid.Column="1" FontSize="9">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding User.UserName}" Header="UserName" />

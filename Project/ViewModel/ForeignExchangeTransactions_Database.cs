@@ -51,6 +51,19 @@ namespace ViewModel
             return foreignExchangeTransactionList[0];
         }
 
+        public ForeignExchangeTransactionList SelectByUser(User user)
+        {
+            command.CommandText = "SELECT * FROM ForeignExchangeTransactions_Table WHERE UserId=" + user.Id;
+            ForeignExchangeTransactionList foreignExchangeTransactionList = new ForeignExchangeTransactionList(ExecuteCommand());
+
+            if (foreignExchangeTransactionList.Count == 0)
+            {
+                return null;
+            }
+
+            return foreignExchangeTransactionList;
+        }
+
         protected override void LoadParameters(BaseEntity entity)
         {
             ForeignExchangeTransaction foreignExchangeTransaction = entity as ForeignExchangeTransaction;
