@@ -48,9 +48,9 @@ namespace ViewModel
         /// </summary>
         /// <returns>list of currencies</returns>
         public static List<ForeignExchange> CreateForeignExchangeList(ForeignExchangeList list)
-        {
+        { //apikey cur_live_0oUN82RUSFnByuuaBwv1FwyDBVIAPCZi7E153NRH
             // http request from external api to get the foreign exchage rates
-            var request = (HttpWebRequest)WebRequest.Create("https://api.currencyapi.com/v3/latest?apikey=cur_live_3OCymrhZQ4ZVFKl5twKaurzQQ0GAkGOvi7Jvcveu");
+            var request = (HttpWebRequest)WebRequest.Create("https://api.currencyapi.com/v3/latest?apikey=cur_live_0oUN82RUSFnByuuaBwv1FwyDBVIAPCZi7E153NRH");
             var response = (HttpWebResponse)request.GetResponse();
             var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
@@ -65,6 +65,7 @@ namespace ViewModel
             {
                 var foreignExchangeInfo = currencies[currency.CurrencyCode];
                 ForeignExchange foreignExchange = new ForeignExchange();
+                foreignExchange.Id = currency.Id;
                 foreignExchange.CurrencyName = currency.CurrencyName;
                 foreignExchange.CurrencyCode = (foreignExchangeInfo["code"]).ToString();
                 foreignExchange.Value = Double.Parse((foreignExchangeInfo["value"]).ToString());

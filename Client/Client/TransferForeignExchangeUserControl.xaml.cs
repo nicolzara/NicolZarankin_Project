@@ -45,7 +45,7 @@ namespace Client
             foreignExchangeTransaction.User = user;
             foreignExchangeTransaction.ForeignExchange = foreignExchange;
             foreignExchangeTransaction.CurrencyValue = foreignExchange.Value;
-            foreignExchangeTransaction.CurrencyAmount = int.Parse(CurrencyAmountTextBox.Text);
+            foreignExchangeTransaction.CurrencyAmount = double.Parse(CurrencyAmountTextBox.Text);
             foreignExchangeTransaction.DateSignature = DateTime.Now;
             string buyOrSell = BuyOrSellComboBox.Text;            
             foreignExchangeTransaction.BuyOrSell = buyOrSell == "Buy" ? true : false;
@@ -55,7 +55,7 @@ namespace Client
             ForeignExchangeWallet foreignExchangeWallet = null;
             foreach (ForeignExchangeWallet wallet in foreignExchangeWalletList)
             {
-                if(wallet.ForeignExchange == foreignExchange)
+                if(wallet.ForeignExchange.Id == foreignExchange.Id)
                     foreignExchangeWallet = wallet;
             }
 
@@ -63,14 +63,14 @@ namespace Client
             {
                 if(foreignExchangeTransaction.BuyOrSell)
                 {
-                    if(user.FreeBalance - (double.Parse(TotalTextBox.Text)) > 0)
+                    if((user.FreeBalance - double.Parse(TotalTextBox.Text)) > 0)
                     {
                         foreignExchangeWallet = new ForeignExchangeWallet();
                         foreignExchangeWallet.ForeignExchange = foreignExchange;
                         foreignExchangeWallet.User = user;
                         foreignExchangeWallet.CurrencyAmount = double.Parse(CurrencyAmountTextBox.Text);
                         service.InsertForeignExchangeWallet(foreignExchangeWallet);
-                        user.FreeBalance -= (double.Parse(TotalTextBox.Text));
+                        user.FreeBalance = (user.FreeBalance - double.Parse(TotalTextBox.Text));
                         service.UpdateUser(user);
                         service.InsertForeignExchangeTransaction(foreignExchangeTransaction);
                     }
