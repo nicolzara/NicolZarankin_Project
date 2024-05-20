@@ -43,7 +43,7 @@ namespace Client
         }
         private void GetTransactions(User user)
         {
-            ForeignExchangeTransactionList list = new ServiceClient().SelectAllForeignExchangeTransactions();
+            ForeignExchangeTransactionList list = new ServiceClient().SelectForeignExchangeTransactionsByUser(user);
             CurrencyTransactionsListView.ItemsSource = list;
         }
 

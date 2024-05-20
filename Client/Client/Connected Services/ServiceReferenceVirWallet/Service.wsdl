@@ -97,6 +97,12 @@
   <wsdl:message name="IService_SelectAllForeignExchangeTransactions_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllForeignExchangeTransactionsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_SelectForeignExchangeTransactionsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectForeignExchangeTransactionsByUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectForeignExchangeTransactionsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectForeignExchangeTransactionsByUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_InsertForeignExchangeTransaction_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertForeignExchangeTransaction" />
   </wsdl:message>
@@ -265,6 +271,10 @@
     <wsdl:operation name="SelectAllForeignExchangeTransactions">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectAllForeignExchangeTransactions" message="tns:IService_SelectAllForeignExchangeTransactions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectAllForeignExchangeTransactionsResponse" message="tns:IService_SelectAllForeignExchangeTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectForeignExchangeTransactionsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectForeignExchangeTransactionsByUser" message="tns:IService_SelectForeignExchangeTransactionsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectForeignExchangeTransactionsByUserResponse" message="tns:IService_SelectForeignExchangeTransactionsByUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertForeignExchangeTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertForeignExchangeTransaction" message="tns:IService_InsertForeignExchangeTransaction_InputMessage" />
@@ -469,6 +479,15 @@
     </wsdl:operation>
     <wsdl:operation name="SelectAllForeignExchangeTransactions">
       <soap:operation soapAction="http://tempuri.org/IService/SelectAllForeignExchangeTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectForeignExchangeTransactionsByUser">
+      <soap:operation soapAction="http://tempuri.org/IService/SelectForeignExchangeTransactionsByUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

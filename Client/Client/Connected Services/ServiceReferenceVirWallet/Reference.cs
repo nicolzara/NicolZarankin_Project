@@ -753,6 +753,12 @@ namespace Client.ServiceReferenceVirWallet {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectAllForeignExchangeTransactions", ReplyAction="http://tempuri.org/IService/SelectAllForeignExchangeTransactionsResponse")]
         System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeTransactionList> SelectAllForeignExchangeTransactionsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectForeignExchangeTransactionsByUser", ReplyAction="http://tempuri.org/IService/SelectForeignExchangeTransactionsByUserResponse")]
+        Client.ServiceReferenceVirWallet.ForeignExchangeTransactionList SelectForeignExchangeTransactionsByUser(Client.ServiceReferenceVirWallet.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectForeignExchangeTransactionsByUser", ReplyAction="http://tempuri.org/IService/SelectForeignExchangeTransactionsByUserResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeTransactionList> SelectForeignExchangeTransactionsByUserAsync(Client.ServiceReferenceVirWallet.User user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertForeignExchangeTransaction", ReplyAction="http://tempuri.org/IService/InsertForeignExchangeTransactionResponse")]
         int InsertForeignExchangeTransaction(Client.ServiceReferenceVirWallet.ForeignExchangeTransaction foreignExchangeTransaction);
         
@@ -1007,6 +1013,14 @@ namespace Client.ServiceReferenceVirWallet {
         
         public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeTransactionList> SelectAllForeignExchangeTransactionsAsync() {
             return base.Channel.SelectAllForeignExchangeTransactionsAsync();
+        }
+        
+        public Client.ServiceReferenceVirWallet.ForeignExchangeTransactionList SelectForeignExchangeTransactionsByUser(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectForeignExchangeTransactionsByUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServiceReferenceVirWallet.ForeignExchangeTransactionList> SelectForeignExchangeTransactionsByUserAsync(Client.ServiceReferenceVirWallet.User user) {
+            return base.Channel.SelectForeignExchangeTransactionsByUserAsync(user);
         }
         
         public int InsertForeignExchangeTransaction(Client.ServiceReferenceVirWallet.ForeignExchangeTransaction foreignExchangeTransaction) {

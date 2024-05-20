@@ -46,10 +46,10 @@ namespace Client
         /// </summary>
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-            ServiceClient service1 = new ServiceClient();
-            User loginUser1 = service1.Login("Nicol","Asd123@#");
-            ManagerUserMenuWindow w1 = new ManagerUserMenuWindow(loginUser1);
-            w1.ShowDialog();
+            //ServiceClient service1 = new ServiceClient();
+            //User loginUser1 = service1.Login("Nicol","Asd123@#");
+            //ManagerUserMenuWindow w1 = new ManagerUserMenuWindow(loginUser1);
+            //w1.ShowDialog();
             if (CheckData())
             {
                 // do login while using the service

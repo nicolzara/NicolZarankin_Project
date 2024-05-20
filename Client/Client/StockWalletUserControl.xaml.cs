@@ -23,13 +23,28 @@ namespace Client
     public partial class StockWalletUserControl : UserControl
     {
         private User user;
-        private ManagerUserMenuWindow parent;
+        private Window parent;
         public StockWalletUserControl(User user, bool all, ManagerUserMenuWindow managerUserMenuWindow)
         {
             this.parent = managerUserMenuWindow;
             this.user = user;
             InitializeComponent();
             if(all)
+            {
+                GetAllWallets();
+            }
+            else
+            {
+                GetWallets();
+            }
+        }
+
+        public StockWalletUserControl(User user, bool all, NormalUserMenuWindow normalUserMenuWindow)
+        {
+            this.parent = normalUserMenuWindow;
+            this.user = user;
+            InitializeComponent();
+            if (all)
             {
                 GetAllWallets();
             }
@@ -63,7 +78,16 @@ namespace Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            parent.OpenTransferStock();
+            if (parent is ManagerUserMenuWindow)
+            {
+                ManagerUserMenuWindow managerUserMenuWindow = (ManagerUserMenuWindow)parent;
+                managerUserMenuWindow.OpenTransferStock();
+            }
+            else if (parent is NormalUserMenuWindow)
+            {
+                NormalUserMenuWindow normalUserMenuWindow = (NormalUserMenuWindow)parent;
+                normalUserMenuWindow.OpenTransferStock();
+            }
         }
     }
 }

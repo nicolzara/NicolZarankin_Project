@@ -22,7 +22,7 @@ namespace Client
     public partial class ForeignExchangeWalletUserControl : UserControl
     {
         private User user;
-        private ManagerUserMenuWindow parent;
+        private Window parent;
 
         public ForeignExchangeWalletUserControl(User user, bool all, ManagerUserMenuWindow managerUserMenuWindow)
         {
@@ -38,6 +38,36 @@ namespace Client
                 GetWallets();
             }
             
+        }
+
+        public ForeignExchangeWalletUserControl(User user, bool all, TeenUserMenuWindow teenUserMenuWindow)
+        {
+            this.user = user;
+            this.parent = teenUserMenuWindow;
+            InitializeComponent();
+            if (all)
+            {
+                GetAllWallets();
+            }
+            else
+            {
+                GetWallets();
+            }
+        }
+
+        public ForeignExchangeWalletUserControl(User user, bool all, NormalUserMenuWindow normalUserMenuWindow)
+        {
+            this.user = user;
+            this.parent = normalUserMenuWindow;
+            InitializeComponent();
+            if (all)
+            {
+                GetAllWallets();
+            }
+            else
+            {
+                GetWallets();
+            }
         }
 
         private void GetWallets()
@@ -64,7 +94,21 @@ namespace Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            parent.OpenTransferForeignExchange();
+            if (parent is ManagerUserMenuWindow)
+            {
+                ManagerUserMenuWindow managerUserMenuWindow = (ManagerUserMenuWindow)parent;
+                managerUserMenuWindow.OpenTransferForeignExchange();
+            }
+            else if (parent is TeenUserMenuWindow)
+            {
+                TeenUserMenuWindow teenUserMenuWindow = (TeenUserMenuWindow)parent;
+                teenUserMenuWindow.OpenTransferForeignExchange();
+            }
+            else if (parent is NormalUserMenuWindow)
+            {
+                NormalUserMenuWindow normalUserMenuWindow = (NormalUserMenuWindow)parent;
+                normalUserMenuWindow.OpenTransferForeignExchange();
+            }
         }
     }
 }
