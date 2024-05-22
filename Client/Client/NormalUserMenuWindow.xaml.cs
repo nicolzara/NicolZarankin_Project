@@ -25,11 +25,14 @@ namespace Client
         {
             this.user = user;
             InitializeComponent();
+            grView.Children.Clear();
+            grView.Children.Add(new UserUserControl(user));
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("hello");
+            grView.Children.Clear();
+            grView.Children.Add(new UserUserControl(user));
         }
 
         private void StockInfo_Click(object sender, RoutedEventArgs e)

@@ -160,6 +160,9 @@
     <Compile Include="UsersTableUserControl.xaml.cs">
       <DependentUpon>UsersTableUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserUserControl.xaml.cs">
+      <DependentUpon>UserUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validation.cs" />
     <Compile Include="webRequests.cs" />
     <Page Include="AboutUsUserControl.xaml">
@@ -244,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UsersTableUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

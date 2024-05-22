@@ -63,7 +63,7 @@ namespace Client
                 {
                     if (loginUser.PermissionLevel == ((int)PermissionLevel.Teen))
                     {
-                        TeenUserMenuWindow teenUserMenuWindow = new TeenUserMenuWindow(user);
+                        TeenUserMenuWindow teenUserMenuWindow = new TeenUserMenuWindow(loginUser);
                         teenUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
                         teenUserMenuWindow.Left = this.Left;
                         teenUserMenuWindow.Top = this.Top;
@@ -72,7 +72,7 @@ namespace Client
                     }
                     else if (loginUser.PermissionLevel == ((int)PermissionLevel.Normal))
                     {
-                        NormalUserMenuWindow normalUserMenuWindow = new NormalUserMenuWindow(user);
+                        NormalUserMenuWindow normalUserMenuWindow = new NormalUserMenuWindow(loginUser);
                         normalUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
                         normalUserMenuWindow.Left = this.Left;
                         normalUserMenuWindow.Top = this.Top;
@@ -81,7 +81,7 @@ namespace Client
                     }
                     else if(loginUser.PermissionLevel == ((int)PermissionLevel.Manager))
                     {
-                        ManagerUserMenuWindow managerUserMenuWindow = new ManagerUserMenuWindow(user);
+                        ManagerUserMenuWindow managerUserMenuWindow = new ManagerUserMenuWindow(loginUser);
                         managerUserMenuWindow.WindowStartupLocation = WindowStartupLocation.Manual;
                         managerUserMenuWindow.Left = this.Left;
                         managerUserMenuWindow.Top = this.Top;

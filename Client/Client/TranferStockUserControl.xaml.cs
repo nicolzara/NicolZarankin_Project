@@ -150,7 +150,7 @@ namespace Client
             try
             {
                 if (!TotalTextBox.IsFocused)
-                    TotalTextBox.Text = (int.Parse(StockAmountTextBox.Text) / Stock.Value).ToString();
+                    TotalTextBox.Text = (int.Parse(StockAmountTextBox.Text) * Stock.Value).ToString();
             }
             catch
             {
