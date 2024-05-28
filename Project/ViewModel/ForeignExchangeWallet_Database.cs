@@ -70,5 +70,17 @@ namespace ViewModel
             LoadParameters(ForeignExchangeWallet);
             return ExecuteCRUD();
         }
+
+        public void DeleteByUser(User user)
+        {
+            ForeignExchangeWalletList list = this.SelectByUser(user);
+            if (list != null)
+            {
+                foreach (ForeignExchangeWallet foreignExchangeWallet in list)
+                {
+                    this.Delete(foreignExchangeWallet);
+                }
+            }            
+        }
     }
 }

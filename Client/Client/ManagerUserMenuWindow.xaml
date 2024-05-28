@@ -72,6 +72,11 @@
                         <materialDesign:PackIcon Kind="AccountGroupOutline" />
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Header="Delete user" Click="DeleteUser_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="AccountOff" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             
             <MenuItem Header="_Add">

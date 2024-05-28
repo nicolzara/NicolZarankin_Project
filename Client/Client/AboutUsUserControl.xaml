@@ -21,7 +21,7 @@
             <TextBlock x:Name="QuoteTB" Margin="10" TextWrapping="WrapWithOverflow"/>
             <TextBlock x:Name="WhatDoesTrumpThinkTB" Margin="10" TextWrapping="WrapWithOverflow"/>
             <TextBlock x:Name="CatFactTB" Margin="10" TextWrapping="WrapWithOverflow"/>
-            <TextBlock x:Name="ActivityTB" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <!--<TextBlock x:Name="ActivityTB" Margin="10" TextWrapping="WrapWithOverflow"/>-->
         </StackPanel>
     </Grid>
 </UserControl>

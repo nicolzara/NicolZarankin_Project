@@ -22,7 +22,7 @@ namespace Client
             QuoteTB.Text = webRequests.WebRequestQuote();
             WhatDoesTrumpThinkTB.Text = webRequests.WebRequestWhatDoesTrumpThink();
             CatFactTB.Text = webRequests.WebRequestCatFact();
-            ActivityTB.Text = webRequests.WebRequestActivity();
+            //ActivityTB.Text = webRequests.WebRequestActivity();
         }
     }
 }

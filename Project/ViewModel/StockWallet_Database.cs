@@ -70,5 +70,17 @@ namespace ViewModel
             LoadParameters(stockWallet);
             return ExecuteCRUD();
         }
+
+        public void DeleteByUser(User user)
+        {
+            StockWalletList list = this.SelectByUser(user);
+            if (list != null)
+            {
+                foreach (StockWallet stockWallet in list)
+                {
+                    this.Delete(stockWallet);
+                }
+            }            
+        }
     }
 }

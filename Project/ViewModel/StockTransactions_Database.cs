@@ -93,9 +93,20 @@ namespace ViewModel
         }
         public int Delete(StockTransaction stockTransaction)
         {
-            command.CommandText = "DELETE FROM StockTransactions_Table WHERE TransactionId = @TransactionId";
-            LoadParameters(stockTransaction);
+            command.CommandText = "DELETE FROM StockTransactions_Table WHERE TransactionId = " + stockTransaction.Id;
             return ExecuteCRUD();
+        }
+
+        public void DeleteByUser(User user)
+        {
+            StockTransactionList list = this.SelectByUser(user);
+            if (list != null)
+            {
+                foreach (StockTransaction stockTransaction in list)
+                {
+                    this.Delete(stockTransaction);
+                }
+            }            
         }
     }
 }

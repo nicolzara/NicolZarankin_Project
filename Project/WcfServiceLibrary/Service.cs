@@ -28,7 +28,7 @@ namespace WcfServiceLibrary
         public int DeleteUser(User user)
         {
             User_Database user_Database = new User_Database();
-            return user_Database.Delete(user);
+            return user_Database.DeleteByUser(user);
         }
 
         public User Login(string username, string password)

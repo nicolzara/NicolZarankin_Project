@@ -41,6 +41,12 @@ namespace Client
             grView.Children.Add(new UsersTableUserControl());
         }
 
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            grView.Children.Clear();
+            grView.Children.Add(new DeleteUserUserControl(user));
+        }
+
         private void StockInfo_Click(object sender, RoutedEventArgs e)
         {
             grView.Children.Clear();

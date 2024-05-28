@@ -1,5 +1,6 @@
 ﻿using Model;
 using System;
+using System.IO;
 
 namespace ViewModel
 {
@@ -44,6 +45,17 @@ namespace ViewModel
             }
 
             return userList[0];
+        }
+
+        public int DeleteByUser(User user)
+        {
+            (new ForeignExchangeTransactions_Database()).DeleteByUser(user);
+            (new ForeignExchangeWallet_Database()).DeleteByUser(user);
+            (new StockTransactions_Database()).DeleteByUser(user);
+            (new StockWallet_Database()).DeleteByUser(user);
+
+            command.CommandText = "DELETE FROM User_Table WHERE Id = " + user.Id;
+            return ExecuteCRUD();
         }
 
         public User SelectByUsername(string username)

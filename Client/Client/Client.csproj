@@ -116,6 +116,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="DeleteUserUserControl.xaml.cs">
+      <DependentUpon>DeleteUserUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ForeignExchangeListUserControl.xaml.cs">
       <DependentUpon>ForeignExchangeListUserControl.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddStockUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteUserUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

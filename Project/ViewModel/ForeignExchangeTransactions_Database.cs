@@ -92,9 +92,20 @@ namespace ViewModel
         }
         public int Delete(ForeignExchangeTransaction foreignExchangeTransaction)
         {
-            command.CommandText = "DELETE FROM ForeignExchangeTransactions_Table WHERE TransactionId = @TransactionId";
-            LoadParameters(foreignExchangeTransaction);
+            command.CommandText = "DELETE FROM ForeignExchangeTransactions_Table WHERE TransactionId = " + foreignExchangeTransaction.Id;
             return ExecuteCRUD();
+        }
+
+        public void DeleteByUser(User user)
+        {
+            ForeignExchangeTransactionList foreignExchangeTransactionsList = this.SelectByUser(user);
+            if(foreignExchangeTransactionsList != null)
+            {
+                foreach (ForeignExchangeTransaction item in foreignExchangeTransactionsList)
+                {
+                    this.Delete(item);
+                }
+            }            
         }
     }
 }
